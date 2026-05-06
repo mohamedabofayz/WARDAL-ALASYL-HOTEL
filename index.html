@@ -660,6 +660,32 @@
         body.modal-open {
             overflow: hidden;
         }
+
+        /* ==================== DATE INPUT FIX FOR RTL ==================== */
+        /* إصلاح عرض حقول التاريخ في الوضع RTL */
+        input[type="date"] {
+            direction: ltr;
+            text-align: right;
+        }
+
+        html[lang="en"] input[type="date"] {
+            text-align: left;
+        }
+
+        /* تأكد من عرض التاريخ بشكل صحيح */
+        input[type="date"]::-webkit-date-and-time-value {
+            text-align: right;
+        }
+
+        html[lang="en"] input[type="date"]::-webkit-date-and-time-value {
+            text-align: left;
+        }
+
+        /* إخفاء أيقونة التقويم الافتراضية في بعض المتصفحات */
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+            cursor: pointer;
+        }
     </style>
 </head>
 <body class="bg-white text-primary font-cairo">
