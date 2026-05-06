@@ -1124,9 +1124,9 @@
                             <label class="block text-white/80 text-sm font-medium mb-2" for="bookRoom" data-i18n="form_room_type">نوع الغرفة</label>
                             <select id="bookRoom" class="form-input w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all" required>
                                 <option value="" class="text-primary" data-i18n="form_select_room">اختر نوع الغرفة</option>
-                                <option value="standard" class="text-primary" data-i18n="room_option_standard">الغرفة القياسية المزدوجة - 350 ر.س</option>
-                                <option value="deluxe" class="text-primary" data-i18n="room_option_deluxe">غرفة الديلوكس - 550 ر.س</option>
-                                <option value="suite" class="text-primary" data-i18n="room_option_suite">الجناح العائلي - 800 ر.س</option>
+                                <option value="standard" class="text-primary" data-i18n="room_option_standard">الغرفة المزدوجة</option>
+                                <option value="deluxe" class="text-primary" data-i18n="room_option_deluxe">غرفة الديلوكس</option>
+                                <option value="suite" class="text-primary" data-i18n="room_option_suite">الجناح العائلي</option>
                             </select>
                         </div>
                         <div>
@@ -1332,7 +1332,7 @@
                     <h5 class="font-bold text-lg mb-6">النشرة البريدية</h5>
                     <p class="text-white/50 text-sm mb-4">اشترك لتصلك أحدث العروض والأخبار</p>
                     <form id="newsletterForm" class="space-y-3">
-                        <input type="email" placeholder="بريدك الإلكتروني" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-gold text-sm transition-all" required>
+                        <input type="email" id="newsletterEmail" placeholder="بريدك الإلكتروني" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-gold text-sm transition-all" required>
                         <button type="submit" class="w-full bg-gold hover:bg-gold-light text-primary font-bold px-4 py-3 rounded-xl text-sm transition-all duration-300">
                             اشترك الآن
                         </button>
@@ -1603,62 +1603,195 @@
             updateSlider();
         });
 
+        // ===== Google Apps Script URL =====
+        // استبدل هذا الرابط برابط Google Apps Script الخاص بك بعد النشر
+        var GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby4tYef27plBU0YU484ode24A-nleFFZlz-a-_SsDVPGEDpVz-MBMDfG12ttYTtHHgkbA/exec';
+
         // ===== Booking Form =====
         var bookingForm = document.getElementById('bookingForm');
         var bookingSuccess = document.getElementById('bookingSuccess');
+        var bookingSubmitBtn = bookingForm.querySelector('button[type="submit"]');
+        var bookingOriginalText = bookingSubmitBtn ? bookingSubmitBtn.textContent : 'تأكيد الحجز';
 
         bookingForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            bookingForm.classList.add('hidden');
-            bookingSuccess.classList.remove('hidden');
-            bookingSuccess.classList.add('animate-scale-in');
 
-            // Reset after 5 seconds
-            setTimeout(function() {
-                bookingForm.classList.remove('hidden');
-                bookingSuccess.classList.add('hidden');
-                bookingForm.reset();
-            }, 5000);
+            // تعطيل الزر أثناء الإرسال
+            if (bookingSubmitBtn) {
+                bookingSubmitBtn.disabled = true;
+                bookingSubmitBtn.textContent = 'جاري الإرسال...';
+            }
+
+            // جمع بيانات النموذج
+            var formData = {
+                type: 'booking',
+                name: document.getElementById('bookName').value,
+                phone: document.getElementById('bookPhone').value,
+                checkin: document.getElementById('bookCheckin').value,
+                checkout: document.getElementById('bookCheckout').value,
+                room: document.getElementById('bookRoom').value,
+                guests: document.getElementById('bookGuests').value,
+                notes: document.getElementById('bookNotes').value,
+                timestamp: new Date().toISOString()
+            };
+
+            // إرسال البيانات إلى Google Apps Script
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(function() {
+                // عرض رسالة النجاح
+                bookingForm.classList.add('hidden');
+                bookingSuccess.classList.remove('hidden');
+                bookingSuccess.classList.add('animate-scale-in');
+
+                // إعادة تعيين النموذج بعد 5 ثواني
+                setTimeout(function() {
+                    bookingForm.classList.remove('hidden');
+                    bookingSuccess.classList.add('hidden');
+                    bookingForm.reset();
+                    if (bookingSubmitBtn) {
+                        bookingSubmitBtn.disabled = false;
+                        bookingSubmitBtn.textContent = bookingOriginalText;
+                    }
+                }, 5000);
+            })
+            .catch(function(error) {
+                console.error('Error:', error);
+                alert('حدث خطأ أثناء إرسال البيانات. يرجى المحاولة مرة أخرى.');
+                if (bookingSubmitBtn) {
+                    bookingSubmitBtn.disabled = false;
+                    bookingSubmitBtn.textContent = bookingOriginalText;
+                }
+            });
         });
 
         // ===== Contact Form =====
         var contactForm = document.getElementById('contactForm');
+        var contactSubmitBtn = contactForm.querySelector('button[type="submit"]');
+        var contactOriginalText = contactSubmitBtn ? contactSubmitBtn.textContent : 'إرسال الرسالة';
+        var contactOriginalBg = contactSubmitBtn ? contactSubmitBtn.style.backgroundColor : '';
+
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            var btn = this.querySelector('button[type="submit"]');
-            var originalText = btn.textContent;
-            btn.textContent = 'جاري الإرسال...';
-            btn.disabled = true;
 
-            setTimeout(function() {
-                btn.textContent = 'تم الإرسال بنجاح ✓';
-                btn.style.backgroundColor = '#10B981';
-                btn.style.color = '#fff';
+            // تعطيل الزر أثناء الإرسال
+            if (contactSubmitBtn) {
+                contactSubmitBtn.disabled = true;
+                contactSubmitBtn.textContent = 'جاري الإرسال...';
+            }
 
+            // جمع بيانات النموذج
+            var formData = {
+                type: 'contact',
+                name: document.getElementById('contactName').value,
+                email: document.getElementById('contactEmail').value,
+                phone: document.getElementById('contactPhone').value,
+                message: document.getElementById('contactMessage').value,
+                timestamp: new Date().toISOString()
+            };
+
+            // إرسال البيانات إلى Google Apps Script
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(function() {
+                // عرض رسالة النجاح
+                if (contactSubmitBtn) {
+                    contactSubmitBtn.textContent = 'تم الإرسال بنجاح ✓';
+                    contactSubmitBtn.style.backgroundColor = '#10B981';
+                    contactSubmitBtn.style.color = '#fff';
+                }
+
+                // إعادة تعيين النموذج بعد 3 ثواني
                 setTimeout(function() {
-                    btn.textContent = originalText;
-                    btn.style.backgroundColor = '';
-                    btn.style.color = '';
-                    btn.disabled = false;
                     contactForm.reset();
+                    if (contactSubmitBtn) {
+                        contactSubmitBtn.textContent = contactOriginalText;
+                        contactSubmitBtn.style.backgroundColor = contactOriginalBg;
+                        contactSubmitBtn.style.color = '';
+                        contactSubmitBtn.disabled = false;
+                    }
                 }, 3000);
-            }, 1500);
+            })
+            .catch(function(error) {
+                console.error('Error:', error);
+                alert('حدث خطأ أثناء إرسال البيانات. يرجى المحاولة مرة أخرى.');
+                if (contactSubmitBtn) {
+                    contactSubmitBtn.textContent = contactOriginalText;
+                    contactSubmitBtn.disabled = false;
+                }
+            });
         });
 
         // ===== Newsletter Form =====
         var newsletterForm = document.getElementById('newsletterForm');
+        var newsletterSubmitBtn = newsletterForm.querySelector('button[type="submit"]');
+        var newsletterOriginalText = newsletterSubmitBtn ? newsletterSubmitBtn.textContent : 'اشترك الآن';
+        var newsletterOriginalBg = newsletterSubmitBtn ? newsletterSubmitBtn.style.backgroundColor : '';
+
         newsletterForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            var btn = this.querySelector('button');
-            var originalText = btn.textContent;
-            btn.textContent = 'تم الاشتراك ✓';
-            btn.style.backgroundColor = '#10B981';
 
-            setTimeout(function() {
-                btn.textContent = originalText;
-                btn.style.backgroundColor = '';
-                newsletterForm.reset();
-            }, 3000);
+            // تعطيل الزر أثناء الإرسال
+            if (newsletterSubmitBtn) {
+                newsletterSubmitBtn.disabled = true;
+                newsletterSubmitBtn.textContent = 'جاري الإرسال...';
+            }
+
+            // جمع بيانات النموذج
+            var formData = {
+                type: 'newsletter',
+                email: document.getElementById('newsletterEmail').value,
+                timestamp: new Date().toISOString()
+            };
+
+            // إرسال البيانات إلى Google Apps Script
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(function() {
+                // عرض رسالة النجاح
+                if (newsletterSubmitBtn) {
+                    newsletterSubmitBtn.textContent = 'تم الاشتراك ✓';
+                    newsletterSubmitBtn.style.backgroundColor = '#10B981';
+                    newsletterSubmitBtn.style.color = '#fff';
+                }
+
+                // إعادة تعيين النموذج بعد 3 ثواني
+                setTimeout(function() {
+                    newsletterForm.reset();
+                    if (newsletterSubmitBtn) {
+                        newsletterSubmitBtn.textContent = newsletterOriginalText;
+                        newsletterSubmitBtn.style.backgroundColor = newsletterOriginalBg;
+                        newsletterSubmitBtn.style.color = '';
+                        newsletterSubmitBtn.disabled = false;
+                    }
+                }, 3000);
+            })
+            .catch(function(error) {
+                console.error('Error:', error);
+                alert('حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.');
+                if (newsletterSubmitBtn) {
+                    newsletterSubmitBtn.textContent = newsletterOriginalText;
+                    newsletterSubmitBtn.disabled = false;
+                }
+            });
         });
 
         // ===== Back to Top Button =====
