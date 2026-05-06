@@ -1,0 +1,2230 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="فندق وردة الأصيل في مكة المكرمة - إقامة فاخرة بالقرب من الحرمين الشريفين. احجز الآن واستمتع بأفضل الخدمات والراحة.">
+    <meta name="keywords" content="فندق مكة، وردة الأصيل، حجز فندق مكة، قريب من الحرم، معتمرين، حجاج">
+    <meta name="author" content="Wardah Al Asyl Hotel">
+    <meta property="og:title" content="فندق وردة الأصيل | مكة المكرمة">
+    <meta property="og:description" content="إقامة فاخرة بالقرب من الحرمين الشريفين">
+    <meta property="og:type" content="website">
+    <title>فندق وردة الأصيل | Wardah Al Asyl Hotel - مكة المكرمة</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts: Tajawal (Arabic sans-serif), Inter (English), Noto Nastaliq Urdu -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A2540',
+                        'primary-light': '#133A5E',
+                        'primary-dark': '#061A2E',
+                        accent: '#1E6BA8',
+                        'accent-light': '#2A8FD4',
+                        gold: '#C9A84C',
+                        'gold-light': '#D4BA6E',
+                        cream: '#F8F6F0',
+                        'gray-soft': '#F0EDE8',
+                        'gray-medium': '#B0A99F',
+                    },
+                    fontFamily: {
+                        arabic: ['Tajawal', 'Noto Nastaliq Urdu', 'Inter', 'sans-serif'],
+                        inter: ['Inter', 'Tajawal', 'sans-serif'],
+                        urdu: ['Noto Nastaliq Urdu', 'Tajawal', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            font-family: 'Tajawal', 'Noto Nastaliq Urdu', 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Language-specific fonts */
+        html[lang="en"] * {
+            font-family: 'Inter', 'Tajawal', sans-serif;
+        }
+
+        html[lang="ur"] * {
+            font-family: 'Noto Nastaliq Urdu', 'Tajawal', sans-serif;
+        }
+
+        html[lang="ar"] * {
+            font-family: 'Tajawal', 'Noto Nastaliq Urdu', sans-serif;
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            position: relative;
+        }
+
+        .lang-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            color: white;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 8px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            min-width: 140px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        html[dir="ltr"] .lang-dropdown {
+            right: auto;
+            left: 0;
+        }
+
+        .lang-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .lang-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            color: #0A2540;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .lang-option:last-child {
+            border-bottom: none;
+        }
+
+        .lang-option:first-child {
+            border-radius: 12px 12px 0 0;
+        }
+
+        .lang-option:last-child {
+            border-radius: 0 0 12px 12px;
+        }
+
+        .lang-option:hover {
+            background: #F8F6F0;
+        }
+
+        .lang-option.active {
+            background: #0A2540;
+            color: white;
+        }
+
+        .lang-flag {
+            font-size: 16px;
+        }
+
+        /* Mobile Language Switcher */
+        .mobile-lang-switcher {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-lang-btn {
+            flex: 1;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: white;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-lang-btn.active {
+            background: #C9A84C;
+            color: #0A2540;
+            border-color: #C9A84C;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F0EDE8;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0A2540;
+            border-radius: 4px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(60px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-60px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-fade-in-down {
+            animation: fadeInDown 0.8s ease-out forwards;
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .animate-slide-right {
+            animation: slideInRight 0.8s ease-out forwards;
+        }
+
+        .animate-slide-left {
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+
+        .animate-scale-in {
+            animation: scaleIn 0.6s ease-out forwards;
+        }
+
+        .animation-delay-100 { animation-delay: 0.1s; }
+        .animation-delay-200 { animation-delay: 0.2s; }
+        .animation-delay-300 { animation-delay: 0.3s; }
+        .animation-delay-400 { animation-delay: 0.4s; }
+        .animation-delay-500 { animation-delay: 0.5s; }
+        .animation-delay-600 { animation-delay: 0.6s; }
+
+        /* Reveal on scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero parallax */
+        .hero-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        @media (max-width: 768px) {
+            .hero-bg {
+                background-attachment: scroll;
+            }
+        }
+
+        /* Card hover effects */
+        .room-card {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .room-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 60px rgba(10, 37, 64, 0.15);
+        }
+
+        .room-card:hover .room-img {
+            transform: scale(1.08);
+        }
+
+        .room-img {
+            transition: transform 0.6s ease;
+        }
+
+        /* Service card hover */
+        .service-card {
+            transition: all 0.35s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            background: linear-gradient(135deg, #0A2540, #133A5E);
+        }
+
+        .service-card:hover .service-icon {
+            color: #C9A84C;
+            transform: scale(1.15);
+        }
+
+        .service-card:hover .service-title {
+            color: #ffffff;
+        }
+
+        .service-card:hover .service-desc {
+            color: #B0A99F;
+        }
+
+        .service-icon {
+            transition: all 0.35s ease;
+        }
+
+        .service-title {
+            transition: color 0.35s ease;
+        }
+
+        .service-desc {
+            transition: color 0.35s ease;
+        }
+
+        /* Testimonial slider */
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* Stars */
+        .star-filled { color: #C9A84C; }
+        .star-empty { color: #D1D5DB; }
+
+        /* Mobile menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        /* Button shine effect */
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-shine::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -100%;
+            width: 60%;
+            height: 200%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: skewX(-20deg);
+            transition: right 0.6s ease;
+        }
+
+        .btn-shine:hover::after {
+            right: 150%;
+        }
+
+        /* Navbar scroll effect */
+        .navbar-scrolled {
+            background: rgba(10, 37, 64, 0.97) !important;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Form input focus */
+        .form-input:focus {
+            border-color: #1E6BA8;
+            box-shadow: 0 0 0 4px rgba(30, 107, 168, 0.1);
+        }
+
+        /* Decorative elements */
+        .pattern-overlay {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A84C' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Counter animation */
+        .counter-value {
+            display: inline-block;
+        }
+
+        /* Floating decoration */
+        .float-decoration {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Gold line divider */
+        .gold-line {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #C9A84C, transparent);
+            width: 80px;
+            margin: 0 auto;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 1.75rem !important;
+            }
+        }
+
+        /* Loading skeleton */
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        /* Smooth image loading */
+        img {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        img.loaded {
+            opacity: 1;
+        }
+
+        /* Section divider */
+        .section-divider {
+            position: relative;
+        }
+
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #C9A84C, transparent);
+        }
+    </style>
+</head>
+<body class="bg-white text-primary font-cairo">
+
+    <!-- ==================== HEADER / NAVBAR ==================== -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 lg:h-24">
+                <!-- Logo -->
+                <a href="#home" class="flex items-center gap-3 group" aria-label="الرئيسية - فندق وردة الأصيل">
+                    <div class="w-12 h-12 lg:w-14 lg:h-14 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                        <svg viewBox="0 0 60 60" class="w-8 h-8 lg:w-9 lg:h-9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="30" cy="30" r="28" stroke="#0A2540" stroke-width="3"/>
+                            <path d="M15 25L22 38L30 22L38 38L45 25" stroke="#0A2540" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M30 18L30 22" stroke="#0A2540" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M27 15L30 18L33 15" stroke="#0A2540" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="hidden sm:block">
+                        <h1 class="text-white font-bold text-lg lg:text-xl leading-tight">فندق وردة الأصيل</h1>
+                        <p class="text-white/70 text-xs lg:text-sm">WARDAL ALASYL HOTEL</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center gap-1" role="navigation" aria-label="القائمة الرئيسية">
+                    <a href="#home" class="nav-link px-4 py-2 text-white/90 hover:text-gold rounded-lg hover:bg-white/10 transition-all duration-300 text-sm font-medium" data-i18n="nav_home">الرئيسية</a>
+                    <a href="#about" class="nav-link px-4 py-2 text-white/90 hover:text-gold rounded-lg hover:bg-white/10 transition-all duration-300 text-sm font-medium" data-i18n="nav_about">عن الفندق</a>
+                    <a href="#rooms" class="nav-link px-4 py-2 text-white/90 hover:text-gold rounded-lg hover:bg-white/10 transition-all duration-300 text-sm font-medium" data-i18n="nav_rooms">الغرف</a>
+                    <a href="#services" class="nav-link px-4 py-2 text-white/90 hover:text-gold rounded-lg hover:bg-white/10 transition-all duration-300 text-sm font-medium" data-i18n="nav_services">الخدمات</a>
+                    <a href="#testimonials" class="nav-link px-4 py-2 text-white/90 hover:text-gold rounded-lg hover:bg-white/10 transition-all duration-300 text-sm font-medium" data-i18n="nav_testimonials">آراء النزلاء</a>
+                    <a href="#contact" class="nav-link px-4 py-2 text-white/90 hover:text-gold rounded-lg hover:bg-white/10 transition-all duration-300 text-sm font-medium" data-i18n="nav_contact">تواصل معنا</a>
+                </nav>
+
+                <!-- Language Switcher + CTA Button + Mobile Toggle -->
+                <div class="flex items-center gap-3">
+                    <!-- Language Switcher -->
+                    <div class="lang-switcher hidden sm:block">
+                        <button class="lang-btn" id="langToggle" aria-label="تغيير اللغة">
+                            <span class="lang-flag" id="currentLangFlag">🇸🇦</span>
+                            <span id="currentLangCode">AR</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="lang-dropdown" id="langDropdown">
+                            <div class="lang-option active" data-lang="ar">
+                                <span class="lang-flag">🇸🇦</span>
+                                <span>العربية</span>
+                            </div>
+                            <div class="lang-option" data-lang="en">
+                                <span class="lang-flag">🇬🇧</span>
+                                <span>English</span>
+                            </div>
+                            <div class="lang-option" data-lang="ur">
+                                <span class="lang-flag">🇵🇰</span>
+                                <span>اردو</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#booking" class="hidden sm:inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-primary font-bold px-5 py-2.5 rounded-full text-sm transition-all duration-300 btn-shine shadow-lg hover:shadow-xl" data-i18n="book_now">
+                        احجز إقامتك
+                    </a>
+                    <button id="menuToggle" class="lg:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="فتح القائمة" aria-expanded="false">
+                        <svg id="menuIconOpen" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                        <svg id="menuIconClose" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-80 h-full bg-primary-dark/98 backdrop-blur-xl z-50 lg:hidden" role="dialog" aria-modal="true" aria-label="قائمة التنقل">
+            <div class="flex flex-col h-full p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                            <svg viewBox="0 0 60 60" class="w-6 h-6" fill="none">
+                                <circle cx="30" cy="30" r="28" stroke="#0A2540" stroke-width="3"/>
+                                <path d="M15 25L22 38L30 22L38 38L45 25" stroke="#0A2540" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <span class="text-white font-bold" data-i18n="hotel_name_short">وردة الأصيل</span>
+                    </div>
+                    <button id="mobileMenuClose" class="text-white/70 hover:text-white p-1" aria-label="إغلاق القائمة">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                    </button>
+                </div>
+                <!-- Mobile Language Switcher -->
+                <div class="mobile-lang-switcher">
+                    <button class="mobile-lang-btn active" data-lang="ar" onclick="changeLanguage('ar')">🇸🇦 AR</button>
+                    <button class="mobile-lang-btn" data-lang="en" onclick="changeLanguage('en')">🇬🇧 EN</button>
+                    <button class="mobile-lang-btn" data-lang="ur" onclick="changeLanguage('ur')">🇵🇰 UR</button>
+                </div>
+                <nav class="flex flex-col gap-1 flex-1">
+                    <a href="#home" class="mobile-nav-link text-white/80 hover:text-gold hover:bg-white/5 px-4 py-3 rounded-xl transition-all text-lg" data-i18n="nav_home">الرئيسية</a>
+                    <a href="#about" class="mobile-nav-link text-white/80 hover:text-gold hover:bg-white/5 px-4 py-3 rounded-xl transition-all text-lg" data-i18n="nav_about">عن الفندق</a>
+                    <a href="#rooms" class="mobile-nav-link text-white/80 hover:text-gold hover:bg-white/5 px-4 py-3 rounded-xl transition-all text-lg" data-i18n="nav_rooms">الغرف والأجنحة</a>
+                    <a href="#services" class="mobile-nav-link text-white/80 hover:text-gold hover:bg-white/5 px-4 py-3 rounded-xl transition-all text-lg" data-i18n="nav_services">الخدمات</a>
+                    <a href="#testimonials" class="mobile-nav-link text-white/80 hover:text-gold hover:bg-white/5 px-4 py-3 rounded-xl transition-all text-lg" data-i18n="nav_testimonials">آراء النزلاء</a>
+                    <a href="#contact" class="mobile-nav-link text-white/80 hover:text-gold hover:bg-white/5 px-4 py-3 rounded-xl transition-all text-lg" data-i18n="nav_contact">تواصل معنا</a>
+                </nav>
+                <div class="mt-6 pt-6 border-t border-white/10">
+                    <a href="#booking" class="flex items-center justify-center gap-2 bg-gold text-primary font-bold px-6 py-3 rounded-full w-full text-base" data-i18n="book_now_mobile">
+                        احجز إقامتك الآن
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="mobileOverlay" class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden"></div>
+    </header>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 hero-bg" style="background-image: url('https://namaalasriya.com/wp-content/uploads/2024/01/WhatsApp-Image-2026-04-09-at-5.42.10-PM.jpeg');" role="img" aria-label="غرفة فاخرة بإطلالة على الكعبة المشرفة">
+            <div class="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/60 to-primary/90"></div>
+        </div>
+
+        <!-- Decorative Elements -->
+        <div class="absolute top-20 left-10 w-32 h-32 border border-gold/10 rounded-full hidden lg:block"></div>
+        <div class="absolute bottom-32 right-16 w-48 h-48 border border-gold/5 rounded-full hidden lg:block"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto pt-20">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2 mb-8 animate-fade-in-down">
+                <span class="w-2 h-2 bg-gold rounded-full animate-pulse"></span>
+                <span class="text-white/90 text-sm font-medium" data-i18n="hero_badge">⭐ فندق اقتصادي نجمة واحدة في قلب مكة المكرمة</span>
+            </div>
+
+            <!-- Main Title -->
+            <h2 class="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 animate-fade-in-up animation-delay-200">
+                <span data-i18n="hero_welcome">مرحبًا بك في فندق</span>
+                <span class="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-gold to-gold-light" data-i18n="hotel_name_highlight">وردة الأصيل</span>
+            </h2>
+
+            <!-- Subtitle -->
+            <p class="text-white/80 text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto mb-10 leading-relaxed animate-fade-in-up animation-delay-400">
+                <span data-i18n="hero_subtitle_1">إقامتك الفاخرة على بُعد 13 دقيقة بالسيارة من بيت الله الحرام</span>
+                <br class="hidden sm:block">
+                <span class="text-gold-light" data-i18n="hero_subtitle_2">استمتع بالراحة والهدوء في أقدس بقاع الأرض</span>
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up animation-delay-600">
+                <a href="#booking" class="btn-shine group inline-flex items-center gap-3 bg-gold hover:bg-gold-light text-primary font-bold px-8 py-4 rounded-full text-lg transition-all duration-300 shadow-2xl hover:shadow-gold/30 hover:-translate-y-1">
+                    <span data-i18n="hero_cta_book">احجز الآن</span>
+                    <svg class="w-5 h-5 hero-arrow-icon transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+                <a href="#rooms" class="group inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-bold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:-translate-y-1">
+                    <span data-i18n="hero_cta_rooms">استكشف الغرف</span>
+                    <svg class="w-5 h-5 hero-arrow-icon-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </a>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-3 gap-4 sm:gap-8 mt-16 max-w-2xl mx-auto animate-fade-in-up animation-delay-600">
+                <div class="text-center">
+                    <div class="text-3xl sm:text-4xl font-bold text-gold counter-value" data-target="13">0</div>
+                    <div class="text-white/60 text-sm mt-1" data-i18n="stat_minutes">دقيقة من الحرم</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl sm:text-4xl font-bold text-gold counter-value" data-target="200">0</div>
+                    <div class="text-white/60 text-sm mt-1" data-i18n="stat_rooms">غرفة وجناح</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl sm:text-4xl font-bold text-gold counter-value" data-target="15000">0</div>
+                    <div class="text-white/60 text-sm mt-1" data-i18n="stat_guests">نزيل سعيد</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+            <span class="text-white/50 text-xs">اكتشف المزيد</span>
+            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT SECTION ==================== -->
+    <section id="about" class="relative py-20 lg:py-28 bg-white pattern-overlay">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <!-- Image Side -->
+                <div class="reveal relative">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://namaalasriya.com/wp-content/uploads/2024/01/WhatsApp-Image-2026-04-09-at-5.42.10-PM.jpeg" alt="غرفة فاخرة في فندق وردة الأصيل" class="w-full h-80 lg:h-[500px] object-cover" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
+                    </div>
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-6 -left-4 sm:left-6 bg-gold text-primary rounded-2xl p-5 shadow-xl float-decoration">
+                        <div class="text-3xl font-bold">+10</div>
+                        <div class="text-sm font-medium">سنة من التميز</div>
+                    </div>
+                    <!-- Decorative -->
+                    <div class="absolute -top-4 -right-4 w-24 h-24 border-2 border-gold/30 rounded-2xl hidden lg:block"></div>
+                </div>
+
+                <!-- Text Side -->
+                <div class="reveal">
+                    <div class="inline-flex items-center gap-2 text-accent mb-4">
+                        <div class="w-8 h-[2px] bg-accent rounded"></div>
+                        <span class="text-sm font-semibold tracking-wide" data-i18n="about_title">عن الفندق</span>
+                    </div>
+                    <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary leading-tight mb-6">
+                        <span data-i18n="about_headline_1">حيث تلتقي</span>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary" data-i18n="about_headline_2">الراحة بالروحانية</span>
+                    </h3>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-6" data-i18n="about_desc_1">
+                        يقع فندق وردة الأصيل في موقع استراتيجي مميز في مكة المكرمة، على بُعد دقائق من الحرم المكي الشريف. صُمّم الفندق ليوفر لضيوفه الكرام من المعتمرين والزوار والحجاج إقامة فاخرة تجمع بين الأصالة العربية والراحة العصرية.
+                    </p>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-8" data-i18n="about_desc_2">
+                        نقدم خدمات متكاملة تشمل غرفاً مجهزة بأحدث وسائل الراحة، مطاعم تقدم أشهى المأكولات، وفريق عمل محترف يضمن لكم إقامة لا تُنسى في أجواء من الهدوء والسكينة.
+                    </p>
+
+                    <!-- Features List -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            </div>
+                            <span class="text-primary font-medium" data-i18n="feature_1">موقع قريب من الحرم</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            </div>
+                            <span class="text-primary font-medium" data-i18n="feature_2">إطلالة على مكة</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            </div>
+                            <span class="text-primary font-medium" data-i18n="feature_3">فريق خدمة متميز</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            </div>
+                            <span class="text-primary font-medium" data-i18n="feature_4">نظافة وتعقيم مستمر</span>
+                        </div>
+                    </div>
+
+                    <a href="#rooms" class="inline-flex items-center gap-2 text-accent hover:text-primary font-bold text-lg group transition-colors">
+                        <span data-i18n="about_rooms_link">تعرّف على غرفنا</span>
+                        <svg class="w-5 h-5 about-arrow-icon transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ROOMS SECTION ==================== -->
+    <section id="rooms" class="relative py-20 lg:py-28 bg-cream pattern-overlay section-divider">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16 reveal">
+                <div class="inline-flex items-center gap-2 text-accent mb-4">
+                    <div class="w-8 h-[2px] bg-accent rounded"></div>
+                    <span class="text-sm font-semibold tracking-wide" data-i18n="rooms_section_title">الغرف والأجنحة</span>
+                    <div class="w-8 h-[2px] bg-accent rounded"></div>
+                </div>
+                <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4" data-i18n="rooms_title">
+                    اختر الإقامة التي تناسبك
+                </h3>
+                <div class="gold-line mb-4"></div>
+                <p class="text-gray-500 text-lg max-w-2xl mx-auto" data-i18n="rooms_subtitle">
+                    غرف مصممة بعناية فائقة لتوفير أقصى درجات الراحة والخصوصية
+                </p>
+            </div>
+
+            <!-- Rooms Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Room Card 1: Standard -->
+                <div class="room-card bg-white rounded-2xl overflow-hidden shadow-lg reveal" style="transition-delay: 0.1s;">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://namaalasriya.com/wp-content/uploads/2024/01/WhatsApp-Image-2026-04-09-at-5.28.06-PM-6.jpeg" alt="غرفة رباعية" class="room-img w-full h-full object-cover" loading="lazy">
+                        <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-full" data-i18n="room_badge_popular">
+                            الأكثر طلباً
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-primary mb-3" data-i18n="room_quad">غرفة رباعية</h4>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-cream text-gray-600 text-xs px-3 py-1 rounded-full" data-i18n="amenity_wifi">واي فاي</span>
+                            <span class="bg-cream text-gray-600 text-xs px-3 py-1 rounded-full" data-i18n="amenity_ac">تكييف</span>
+                            <span class="bg-cream text-gray-600 text-xs px-3 py-1 rounded-full" data-i18n="amenity_tv">تلفاز</span>
+                        </div>
+                        <p class="text-gray-500 text-sm mb-5 leading-relaxed" data-i18n="room_quad_desc">غرفة مريحة ومجهزة بكافة الاحتياجات الأساسية لإقامة هادئة ومريحة.</p>
+                        <div class="flex items-end justify-between pt-4 border-t border-gray-100">
+                            <div>
+                                <span class="text-2xl font-bold text-accent"></span>
+                                <span class="text-gray-400 text-sm"></span>
+                            </div>
+                            <a href="#booking" class="bg-primary hover:bg-primary-light text-white font-bold px-5 py-2.5 rounded-full text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg" data-i18n="book_now_btn">
+                                احجز الآن
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Room Card 2: Deluxe -->
+                <div class="room-card bg-white rounded-2xl overflow-hidden shadow-lg reveal ring-2 ring-gold/30 relative" style="transition-delay: 0.2s;">
+                    <div class="absolute top-0 left-0 right-0 bg-gold text-primary text-center text-xs font-bold py-1.5" data-i18n="room_badge_recommended">
+                        ⭐ موصى بها
+                    </div>
+                    <div class="relative overflow-hidden h-64 mt-7">
+                        <img src="https://namaalasriya.com/wp-content/uploads/2024/01/WhatsApp-Image-2026-04-09-at-5.28.07-PM-5.jpeg" alt="غرفة رباعية" class="room-img w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-primary mb-3" data-i18n="room_quad">غرفة رباعية</h4>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-cream text-gray-600 text-xs px-3 py-1 rounded-full" data-i18n="amenity_view">إطلالة مميزة</span>
+                            <span class="bg-cream text-gray-600 text-xs px-3 py-1 rounded-full" data-i18n="amenity_wifi">واي فاي</span>
+                            <span class="bg-cream text-gray-600 text-xs px-3 py-1 rounded-full" data-i18n="amenity_minibar">ميني بار</span>
+                        </div>
+                        <p class="text-gray-500 text-sm mb-5 leading-relaxed" data-i18n="room_quad_deluxe_desc">غرفة فاخرة مع إطلالة مميزة وتصميم عصري أنيق لتجربة إقامة استثنائية.</p>
+                        <div class="flex items-end justify-between pt-4 border-t border-gray-100">
+                            <div>
+                                <span class="text-2xl font-bold text-accent"></span>
+                                <span class="text-gray-400 text-sm"></span>
+                            </div>
+                            <a href="#booking" class="bg-gold hover:bg-gold-light text-primary font-bold px-5 py-2.5 rounded-full text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg" data-i18n="book_now_btn">
+                                احجز الآن
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Room Card 3: Family Suite -->
+                <div class="room-card bg-white rounded-2xl overflow-hidden shadow-lg reveal" style="transition-delay: 0.3s;">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://namaalasriya.com/wp-content/uploads/2024/01/WhatsApp-Image-2026-04-09-at-5.28.07-PM-6.jpeg" alt="غرفة ثلاثية" class="room-img w-full h-full object-cover" loading="lazy">
+                        <div class="absolute top-4 right-4 bg-accent text-white text-xs font-bold px-3 py-1.5 rounded-full" data-i18n="room_badge_family">
+                            عائلي
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-primary mb-3" data-i18n="room_triple">غرفة ثلاثية</h4>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-cream text-gray-600 text-xs px-3 py-1 rounded-full" data-i18n="amenity_wifi">واي فاي</span>
+                            <span class="bg-cream text-gray-600 text-xs px-3 py-1 rounded-full" data-i18n="amenity_room_service">خدمة غرف</span>
+                        </div>
+                        <p class="text-gray-500 text-sm mb-5 leading-relaxed" data-i18n="room_triple_desc">جناح واسع مثالي للعائلات مع غرف منفصلة ومساحة معيشة مريحة.</p>
+                        <div class="flex items-end justify-between pt-4 border-t border-gray-100">
+                            <div>
+                                <span class="text-2xl font-bold text-accent"></span>
+                                <span class="text-gray-400 text-sm"></span>
+                            </div>
+                            <a href="#booking" class="bg-primary hover:bg-primary-light text-white font-bold px-5 py-2.5 rounded-full text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg" data-i18n="book_now_btn">
+                                احجز الآن
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Rooms -->
+            <div class="text-center mt-12 reveal">
+                <a href="#" class="inline-flex items-center gap-2 border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold px-8 py-3.5 rounded-full text-base transition-all duration-300">
+                    <span data-i18n="view_all_rooms">عرض جميع الغرف</span>
+                    <svg class="w-5 h-5 rooms-arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SERVICES SECTION ==================== -->
+    <section id="services" class="relative py-20 lg:py-28 bg-primary overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-10 right-10 w-72 h-72 border border-white rounded-full"></div>
+            <div class="absolute bottom-10 left-10 w-96 h-96 border border-white rounded-full"></div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16 reveal">
+                <div class="inline-flex items-center gap-2 text-gold mb-4">
+                    <div class="w-8 h-[2px] bg-gold rounded"></div>
+                    <span class="text-sm font-semibold tracking-wide text-gold" data-i18n="services_section_title">خدماتنا</span>
+                    <div class="w-8 h-[2px] bg-gold rounded"></div>
+                </div>
+                <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4" data-i18n="services_title">
+                    خدمات متكاملة لراحتكم
+                </h3>
+                <div class="gold-line mb-4"></div>
+                <p class="text-white/60 text-lg max-w-2xl mx-auto" data-i18n="services_subtitle">
+                    نقدم مجموعة شاملة من الخدمات لضمان إقامة مريحة لا مثيل لها
+                </p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
+                <!-- Service 1: WiFi -->
+                <div class="service-card bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center cursor-pointer reveal" style="transition-delay: 0.05s;">
+                    <div class="service-icon text-gold text-4xl mb-4 mx-auto">
+                        <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.858 15.355-5.858 21.213 0"/></svg>
+                    </div>
+                    <h4 class="service-title text-white font-bold text-sm mb-2" data-i18n="service_wifi">Wi-Fi مجاني</h4>
+                    <p class="service-desc text-white/50 text-xs leading-relaxed" data-i18n="service_wifi_desc">إنترنت عالي السرعة في جميع أنحاء الفندق</p>
+                </div>
+
+                <!-- Service 2: 24h Reception -->
+                <div class="service-card bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center cursor-pointer reveal" style="transition-delay: 0.1s;">
+                    <div class="service-icon text-gold text-4xl mb-4 mx-auto">
+                        <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h4 class="service-title text-white font-bold text-sm mb-2" data-i18n="service_reception">استقبال 24 ساعة</h4>
+                    <p class="service-desc text-white/50 text-xs leading-relaxed" data-i18n="service_reception_desc">فريق استقبال متاح على مدار الساعة</p>
+                </div>
+
+                <!-- Service 3: Restaurant -->
+                <div class="service-card bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center cursor-pointer reveal" style="transition-delay: 0.15s;">
+                    <div class="service-icon text-gold text-4xl mb-4 mx-auto">
+                        <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                    </div>
+                    <h4 class="service-title text-white font-bold text-sm mb-2" data-i18n="service_restaurant">مطعم وكافيتيريا</h4>
+                    <p class="service-desc text-white/50 text-xs leading-relaxed" data-i18n="service_restaurant_desc">مأكولات متنوعة وشهية طوال اليوم</p>
+                </div>
+
+                <!-- Service 4: Room Service -->
+                <div class="service-card bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center cursor-pointer reveal" style="transition-delay: 0.2s;">
+                    <div class="service-icon text-gold text-4xl mb-4 mx-auto">
+                        <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                    </div>
+                    <h4 class="service-title text-white font-bold text-sm mb-2" data-i18n="service_room">خدمة الغرف</h4>
+                    <p class="service-desc text-white/50 text-xs leading-relaxed" data-i18n="service_room_desc">وجبات ومشروبات تصل إلى غرفتك</p>
+                </div>
+
+                <!-- Service 5: Parking -->
+                <div class="service-card bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center cursor-pointer reveal" style="transition-delay: 0.25s;">
+                    <div class="service-icon text-gold text-4xl mb-4 mx-auto">
+                        <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V19a2 2 0 01-2 2H8a2 2 0 01-2-2v-2"/></svg>
+                    </div>
+                    <h4 class="service-title text-white font-bold text-sm mb-2" data-i18n="service_parking">مواقف سيارات</h4>
+                    <p class="service-desc text-white/50 text-xs leading-relaxed" data-i18n="service_parking_desc">مواقف آمنة ومجانية للنزلاء</p>
+                </div>
+
+                <!-- Service 6: Haram Transport -->
+                <div class="service-card bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center cursor-pointer reveal" style="transition-delay: 0.3s;">
+                    <div class="service-icon text-gold text-4xl mb-4 mx-auto">
+                        <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    </div>
+                    <h4 class="service-title text-white font-bold text-sm mb-2" data-i18n="service_transport">نقل من/إلى الحرم</h4>
+                    <p class="service-desc text-white/50 text-xs leading-relaxed" data-i18n="service_transport_desc">خدمة نقل مريحة إلى المسجد الحرام</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TESTIMONIALS SECTION ==================== -->
+    <section id="testimonials" class="relative py-20 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16 reveal">
+                <div class="inline-flex items-center gap-2 text-accent mb-4">
+                    <div class="w-8 h-[2px] bg-accent rounded"></div>
+                    <span class="text-sm font-semibold tracking-wide" data-i18n="testimonials_section_title">آراء النزلاء</span>
+                    <div class="w-8 h-[2px] bg-accent rounded"></div>
+                </div>
+                <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4" data-i18n="testimonials_title">
+                    ماذا يقول ضيوفنا
+                </h3>
+                <div class="gold-line mb-4"></div>
+                <p class="text-gray-500 text-lg max-w-2xl mx-auto" data-i18n="testimonials_subtitle">
+                    نفخر بثقة آلاف النزلاء الذين اختاروا فندق وردة الأصيل لإقامتهم
+                </p>
+            </div>
+
+            <!-- Testimonials Slider -->
+            <div class="relative overflow-hidden reveal">
+                <div id="testimonialTrack" class="testimonial-track">
+                    <!-- Testimonial 1 -->
+                    <div class="w-full flex-shrink-0 px-3">
+                        <div class="max-w-3xl mx-auto bg-cream rounded-2xl p-8 lg:p-10 text-center relative">
+                            <div class="absolute -top-4 right-8 text-gold text-6xl font-serif leading-none">"</div>
+                            <div class="flex justify-center mb-4">
+                                <div class="flex gap-1">
+                                    <svg class="w-5 h-5 star-filled" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-5 h-5 star-filled" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-5 h-5 star-filled" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-5 h-5 star-filled" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-5 h-5 star-filled" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                                تجربة رائعة! الفندق نظيف جداً والموظفون ودودون ومتعاونون. الموقع ممتاز وقريب من الحرم. أنصح الجميع بالإقامة في فندق وردة الأصيل.
+                            </p>
+                            <div class="flex items-center justify-center gap-3">
+                                <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
+                                    <span class="text-accent font-bold text-lg">أ</span>
+                                </div>
+                                <div class="text-right">
+                                    <h5 class="font-bold text-primary">أحمد محمد</h5>
+                                    <p class="text-gray-400 text-sm">معتمر - جدة</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="w-full flex-shrink-0 px-3">
+                        <div class="max-w-3xl mx-auto bg-cream rounded-2xl p-8 lg:p-10 text-center relative">
+                            <div class="absolute -top-4 right-8 text-gold text-6xl font-serif leading-none">"</div>
+                            <div class="flex justify-center mb-4">
+                                <div class="flex gap-1">
+                                    <svg class="w-5 h-5 star-filled" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-5 h-5 star-filled" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-5 h-5 star-filled" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-5 h-5 star-filled" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-5 h-5 star-filled" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                                أقمنا مع عائلتنا في الجناح العائلي وكانت تجربة ممتازة. الغرف واسعة ونظيفة والخدمة ممتازة. المطعم يقدم وجبات شهية ومتنوعة. سنعود حتماً إن شاء الله.
+                            </p>
+                            <div class="flex items-center justify-center gap-3">
+                                <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
+                                    <span class="text-accent font-bold text-lg">ف</span>
+                                </div>
+                                <div class="text-right">
+                                    <h5 class="font-bold text-primary">فاطمة العلي</h5>
+                                    <p class="text-gray-400 text-sm">حاجّة - القاهرة</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="w-full flex-shrink-0 px-3">
+                        <div class="max-w-3xl mx-auto bg-cream rounded-2xl p-8 lg:p-10 text-center relative">
+                            <div class="absolute -top-4 right-8 text-gold text-6xl font-serif leading-none">"</div>
+                            <div class="flex justify-center mb-4">
+                                <div class="flex gap-1">
+                                    <svg class="w-5 h-5 star-filled" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-5 h-5 star-filled" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-5 h-5 star-filled" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-5 h-5 star-filled" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-5 h-5 star-empty" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                                خدمة النقل من وإلى الحرم كانت ممتازة وسهلة. الموظفون يتحدثون عدة لغات مما سهّل التواصل. الإطلالة من الغرفة كانت رائعة. أنصح بهذا الفندق بشدة.
+                            </p>
+                            <div class="flex items-center justify-center gap-3">
+                                <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
+                                    <span class="text-accent font-bold text-lg">خ</span>
+                                </div>
+                                <div class="text-right">
+                                    <h5 class="font-bold text-primary">خالد الرشيدي</h5>
+                                    <p class="text-gray-400 text-sm">معتمر - الكويت</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 4 -->
+                    <div class="w-full flex-shrink-0 px-3">
+                        <div class="max-w-3xl mx-auto bg-cream rounded-2xl p-8 lg:p-10 text-center relative">
+                            <div class="absolute -top-4 right-8 text-gold text-6xl font-serif leading-none">"</div>
+                            <div class="flex justify-center mb-4">
+                                <div class="flex gap-1">
+                                    <svg class="w-5 h-5 star-filled" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-5 h-5 star-filled" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-5 h-5 star-filled" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-5 h-5 star-filled" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-5 h-5 star-filled" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                                أفضل فندق أقمنا فيه خلال زيارتنا لمكة. النظافة ممتازة والموقع مثالي. طاقم العمل محترف جداً ويحرص على راحة النزلاء. شكراً وردة الأصيل!
+                            </p>
+                            <div class="flex items-center justify-center gap-3">
+                                <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
+                                    <span class="text-accent font-bold text-lg">ن</span>
+                                </div>
+                                <div class="text-right">
+                                    <h5 class="font-bold text-primary">نورة السالم</h5>
+                                    <p class="text-gray-400 text-sm">معتمرة - الرياض</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slider Controls -->
+                <div class="flex items-center justify-center gap-4 mt-8">
+                    <button id="prevTestimonial" class="w-12 h-12 bg-primary hover:bg-primary-light text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110" aria-label="التقييم السابق">
+                        <svg class="w-5 h-5 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </button>
+                    <div id="testimonialDots" class="flex gap-2">
+                        <button class="w-3 h-3 rounded-full bg-accent transition-all duration-300" aria-label="التقييم 1"></button>
+                        <button class="w-3 h-3 rounded-full bg-gray-300 transition-all duration-300" aria-label="التقييم 2"></button>
+                        <button class="w-3 h-3 rounded-full bg-gray-300 transition-all duration-300" aria-label="التقييم 3"></button>
+                        <button class="w-3 h-3 rounded-full bg-gray-300 transition-all duration-300" aria-label="التقييم 4"></button>
+                    </div>
+                    <button id="nextTestimonial" class="w-12 h-12 bg-primary hover:bg-primary-light text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110" aria-label="التقييم التالي">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BOOKING SECTION ==================== -->
+    <section id="booking" class="relative py-20 lg:py-28 bg-gradient-to-br from-primary via-primary-light to-primary overflow-hidden">
+        <!-- Decorative -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-5">
+            <div class="absolute top-20 right-20 w-40 h-40 border-2 border-white rounded-full"></div>
+            <div class="absolute bottom-20 left-20 w-60 h-60 border border-white rounded-full"></div>
+        </div>
+
+        <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 reveal">
+                <div class="inline-flex items-center gap-2 text-gold mb-4">
+                    <div class="w-8 h-[2px] bg-gold rounded"></div>
+                    <span class="text-sm font-semibold tracking-wide text-gold" data-i18n="booking_section_title">احجز الآن</span>
+                    <div class="w-8 h-[2px] bg-gold rounded"></div>
+                </div>
+                <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4" data-i18n="booking_title">
+                    احجز إقامتك الآن
+                </h3>
+                <div class="gold-line mb-4"></div>
+                <p class="text-white/60 text-lg" data-i18n="booking_subtitle">
+                    احجز غرفتك واستمتع بإقامة مميزة في قلب مكة المكرمة
+                </p>
+            </div>
+
+            <!-- Booking Form -->
+            <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-8 lg:p-12 border border-white/10 reveal">
+                <form id="bookingForm" class="space-y-6">
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-white/80 text-sm font-medium mb-2" for="bookName" data-i18n="form_fullname">الاسم الكامل</label>
+                            <input type="text" id="bookName" data-i18n-placeholder="form_fullname_placeholder" placeholder="أدخل اسمك الكامل" class="form-input w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-gold transition-all" required>
+                        </div>
+                        <div>
+                            <label class="block text-white/80 text-sm font-medium mb-2" for="bookPhone" data-i18n="form_phone">رقم الهاتف</label>
+                            <input type="tel" id="bookPhone" placeholder="+966 5XX XXX XXXX" class="form-input w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-gold transition-all" required>
+                        </div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-white/80 text-sm font-medium mb-2" for="bookCheckin" data-i18n="form_checkin">تاريخ الوصول</label>
+                            <input type="date" id="bookCheckin" class="form-input w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all" required>
+                        </div>
+                        <div>
+                            <label class="block text-white/80 text-sm font-medium mb-2" for="bookCheckout" data-i18n="form_checkout">تاريخ المغادرة</label>
+                            <input type="date" id="bookCheckout" class="form-input w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all" required>
+                        </div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-white/80 text-sm font-medium mb-2" for="bookRoom" data-i18n="form_room_type">نوع الغرفة</label>
+                            <select id="bookRoom" class="form-input w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all" required>
+                                <option value="" class="text-primary" data-i18n="form_select_room">اختر نوع الغرفة</option>
+                                <option value="standard" class="text-primary" data-i18n="room_option_standard">الغرفة القياسية المزدوجة - 350 ر.س</option>
+                                <option value="deluxe" class="text-primary" data-i18n="room_option_deluxe">غرفة الديلوكس - 550 ر.س</option>
+                                <option value="suite" class="text-primary" data-i18n="room_option_suite">الجناح العائلي - 800 ر.س</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-white/80 text-sm font-medium mb-2" for="bookGuests" data-i18n="form_guests">عدد النزلاء</label>
+                            <select id="bookGuests" class="form-input w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all" required>
+                                <option value="" class="text-primary" data-i18n="form_select_guests">اختر</option>
+                                <option value="1" class="text-primary" data-i18n="guest_1">1 شخص</option>
+                                <option value="2" class="text-primary" data-i18n="guest_2">2 شخص</option>
+                                <option value="3" class="text-primary" data-i18n="guest_3">3 أشخاص</option>
+                                <option value="4" class="text-primary" data-i18n="guest_4">4 أشخاص</option>
+                                <option value="5" class="text-primary" data-i18n="guest_5">5 أشخاص أو أكثر</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-white/80 text-sm font-medium mb-2" for="bookNotes" data-i18n="form_notes">ملاحظات إضافية</label>
+                        <textarea id="bookNotes" rows="3" data-i18n-placeholder="form_notes_placeholder" placeholder="أي طلبات خاصة أو ملاحظات..." class="form-input w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-gold transition-all resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-gold hover:bg-gold-light text-primary font-bold px-8 py-4 rounded-full text-lg transition-all duration-300 btn-shine shadow-xl hover:shadow-gold/30 hover:-translate-y-1" data-i18n="form_submit">
+                        تأكيد الحجز
+                    </button>
+                </form>
+
+                <!-- Success Message (Hidden by default) -->
+                <div id="bookingSuccess" class="hidden text-center py-8">
+                    <div class="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-2" data-i18n="form_success_title">تم استلام طلبك بنجاح!</h4>
+                    <p class="text-white/70 text-lg" data-i18n="form_success_desc">سيتواصل معك فريقنا قريباً لتأكيد الحجز. شكراً لاختياركم فندق وردة الأصيل.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section id="contact" class="relative py-20 lg:py-28 bg-cream pattern-overlay section-divider">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16 reveal">
+                <div class="inline-flex items-center gap-2 text-accent mb-4">
+                    <div class="w-8 h-[2px] bg-accent rounded"></div>
+                    <span class="text-sm font-semibold tracking-wide" data-i18n="contact_section_title">تواصل معنا</span>
+                    <div class="w-8 h-[2px] bg-accent rounded"></div>
+                </div>
+                <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4" data-i18n="contact_title">
+                    نسعد بتواصلكم
+                </h3>
+                <div class="gold-line mb-4"></div>
+                <p class="text-gray-500 text-lg max-w-2xl mx-auto" data-i18n="contact_subtitle">
+                    لا تتردد في التواصل معنا لأي استفسار أو حجز
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="reveal">
+                    <form id="contactForm" class="bg-white rounded-2xl p-8 shadow-lg space-y-6">
+                        <h4 class="text-xl font-bold text-primary mb-6" data-i18n="contact_form_title">أرسل لنا رسالة</h4>
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-600 text-sm font-medium mb-2" for="contactName" data-i18n="form_name">الاسم</label>
+                                <input type="text" id="contactName" data-i18n-placeholder="form_name_placeholder" placeholder="اسمك الكامل" class="form-input w-full border border-gray-200 rounded-xl px-4 py-3 text-primary placeholder-gray-400 focus:outline-none transition-all" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-600 text-sm font-medium mb-2" for="contactEmail" data-i18n="form_email">البريد الإلكتروني</label>
+                                <input type="email" id="contactEmail" data-i18n-placeholder="form_email_placeholder" placeholder="example@email.com" class="form-input w-full border border-gray-200 rounded-xl px-4 py-3 text-primary placeholder-gray-400 focus:outline-none transition-all" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-gray-600 text-sm font-medium mb-2" for="contactPhone" data-i18n="form_phone">رقم الهاتف</label>
+                            <input type="tel" id="contactPhone" placeholder="+966 5XX XXX XXXX" class="form-input w-full border border-gray-200 rounded-xl px-4 py-3 text-primary placeholder-gray-400 focus:outline-none transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-gray-600 text-sm font-medium mb-2" for="contactMessage" data-i18n="form_message">الرسالة</label>
+                            <textarea id="contactMessage" rows="4" data-i18n-placeholder="form_message_placeholder" placeholder="اكتب رسالتك هنا..." class="form-input w-full border border-gray-200 rounded-xl px-4 py-3 text-primary placeholder-gray-400 focus:outline-none transition-all resize-none" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary hover:bg-primary-light text-white font-bold px-8 py-3.5 rounded-full text-base transition-all duration-300 btn-shine" data-i18n="form_send">
+                            إرسال الرسالة
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Info + Map -->
+                <div class="reveal space-y-8">
+                    <!-- Contact Info Cards -->
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4 bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-primary mb-1" data-i18n="contact_address">العنوان</h5>
+                                <p class="text-gray-500 text-sm">شارع العزيزية، حي العزيزية، مكة المكرمة، المملكة العربية السعودية</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-primary mb-1" data-i18n="contact_phone">الهاتف</h5>
+                                <p class="text-gray-500 text-sm" dir="ltr">+966 12 XXX XXXX</p>
+                                <p class="text-gray-500 text-sm" dir="ltr">+966 5X XXX XXXX</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-primary mb-1" data-i18n="contact_email">البريد الإلكتروني</h5>
+                                <p class="text-gray-500 text-sm" dir="ltr">info@warda-alasyl.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-primary mb-1" data-i18n="contact_hours">ساعات العمل</h5>
+                                <p class="text-gray-500 text-sm" data-i18n="contact_hours_desc">الاستقبال متاح 24 ساعة / 7 أيام</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Google Maps Embed -->
+                    <div class="rounded-2xl overflow-hidden shadow-lg">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1142.733943164135!2d39.8655335!3d21.398083399999997!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c2056ae860ca0f%3A0xaf82e9223b81a20f!2z2YHZhtiv2YIg2YjYryDYp9mE2LnYstmK2LLZitip!5e1!3m2!1sar!2ssa!4v1778053769212!5m2!1sar!2ssa" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="موقع فندق وردة الأصيل على الخريطة"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-primary-dark text-white">
+        <!-- Main Footer -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+                <!-- Brand -->
+                <div class="sm:col-span-2 lg:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                            <svg viewBox="0 0 60 60" class="w-8 h-8" fill="none">
+                                <circle cx="30" cy="30" r="28" stroke="#0A2540" stroke-width="3"/>
+                                <path d="M15 25L22 38L30 22L38 38L45 25" stroke="#0A2540" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">فندق وردة الأصيل</h4>
+                            <p class="text-white/50 text-xs">WARDAL ALASYL HOTEL</p>
+                        </div>
+                    </div>
+                    <p class="text-white/50 text-sm leading-relaxed mb-6">
+                        فندق فاخر في قلب مكة المكرمة، يوفر إقامة مميزة بالقرب من الحرمين الشريفين مع خدمات متكاملة لراحة ضيوفنا الكرام.
+                    </p>
+                    <!-- Social Icons -->
+                    <div class="flex gap-3">
+                        <a href="#" class="w-10 h-10 bg-white/10 hover:bg-gold hover:text-primary rounded-full flex items-center justify-center transition-all duration-300" aria-label="فيسبوك">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 hover:bg-gold hover:text-primary rounded-full flex items-center justify-center transition-all duration-300" aria-label="تويتر">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 hover:bg-gold hover:text-primary rounded-full flex items-center justify-center transition-all duration-300" aria-label="إنستغرام">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 hover:bg-gold hover:text-primary rounded-full flex items-center justify-center transition-all duration-300" aria-label="واتساب">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h5 class="font-bold text-lg mb-6">روابط سريعة</h5>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-white/50 hover:text-gold text-sm transition-colors">الرئيسية</a></li>
+                        <li><a href="#about" class="text-white/50 hover:text-gold text-sm transition-colors">عن الفندق</a></li>
+                        <li><a href="#rooms" class="text-white/50 hover:text-gold text-sm transition-colors">الغرف والأجنحة</a></li>
+                        <li><a href="#services" class="text-white/50 hover:text-gold text-sm transition-colors">الخدمات</a></li>
+                        <li><a href="#testimonials" class="text-white/50 hover:text-gold text-sm transition-colors">آراء النزلاء</a></li>
+                        <li><a href="#contact" class="text-white/50 hover:text-gold text-sm transition-colors">تواصل معنا</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h5 class="font-bold text-lg mb-6">خدماتنا</h5>
+                    <ul class="space-y-3">
+                        <li><span class="text-white/50 text-sm">Wi-Fi مجاني</span></li>
+                        <li><span class="text-white/50 text-sm">استقبال 24 ساعة</span></li>
+                        <li><span class="text-white/50 text-sm">مطعم وكافيتيريا</span></li>
+                        <li><span class="text-white/50 text-sm">خدمة الغرف</span></li>
+                        <li><span class="text-white/50 text-sm">مواقف سيارات</span></li>
+                        <li><span class="text-white/50 text-sm">نقل من/إلى الحرم</span></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h5 class="font-bold text-lg mb-6">النشرة البريدية</h5>
+                    <p class="text-white/50 text-sm mb-4">اشترك لتصلك أحدث العروض والأخبار</p>
+                    <form id="newsletterForm" class="space-y-3">
+                        <input type="email" placeholder="بريدك الإلكتروني" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-gold text-sm transition-all" required>
+                        <button type="submit" class="w-full bg-gold hover:bg-gold-light text-primary font-bold px-4 py-3 rounded-xl text-sm transition-all duration-300">
+                            اشترك الآن
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-t border-white/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <p class="text-white/40 text-sm text-center sm:text-right">
+                        © 2026 فندق وردة الأصيل. جميع الحقوق محفوظة.
+                    </p>
+                    <div class="flex gap-6">
+                        <a href="#" class="text-white/40 hover:text-gold text-sm transition-colors">سياسة الخصوصية</a>
+                        <a href="#" class="text-white/40 hover:text-gold text-sm transition-colors">الشروط والأحكام</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== BACK TO TOP ==================== -->
+    <button id="backToTop" class="fixed bottom-6 left-6 w-12 h-12 bg-primary hover:bg-accent text-white rounded-full shadow-xl flex items-center justify-center z-40 opacity-0 invisible transition-all duration-300 hover:-translate-y-1" aria-label="العودة للأعلى">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+    </button>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        // ===== Image Loading Handler =====
+        document.querySelectorAll('img').forEach(function(img) {
+            if (img.complete) {
+                img.classList.add('loaded');
+            } else {
+                img.addEventListener('load', function() {
+                    this.classList.add('loaded');
+                });
+                img.addEventListener('error', function() {
+                    this.style.backgroundColor = '#F0EDE8';
+                    this.classList.add('loaded');
+                });
+            }
+        });
+
+        // ===== Navbar Scroll Effect =====
+        var navbar = document.getElementById('navbar');
+        var lastScroll = 0;
+
+        window.addEventListener('scroll', function() {
+            var currentScroll = window.pageYOffset;
+
+            if (currentScroll > 80) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // ===== Mobile Menu =====
+        var menuToggle = document.getElementById('menuToggle');
+        var mobileMenu = document.getElementById('mobileMenu');
+        var mobileOverlay = document.getElementById('mobileOverlay');
+        var mobileMenuClose = document.getElementById('mobileMenuClose');
+        var menuIconOpen = document.getElementById('menuIconOpen');
+        var menuIconClose = document.getElementById('menuIconClose');
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('open');
+            mobileOverlay.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            menuIconOpen.classList.add('hidden');
+            menuIconClose.classList.remove('hidden');
+            menuToggle.setAttribute('aria-expanded', 'true');
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('open');
+            mobileOverlay.classList.add('hidden');
+            document.body.style.overflow = '';
+            menuIconOpen.classList.remove('hidden');
+            menuIconClose.classList.add('hidden');
+            menuToggle.setAttribute('aria-expanded', 'false');
+        }
+
+        menuToggle.addEventListener('click', function() {
+            if (mobileMenu.classList.contains('open')) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        });
+
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileOverlay.addEventListener('click', closeMobileMenu);
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-nav-link').forEach(function(link) {
+            link.addEventListener('click', function() {
+                closeMobileMenu();
+            });
+        });
+
+        // ===== Smooth Scroll for Navigation Links =====
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                var targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                var targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    var navHeight = navbar.offsetHeight;
+                    var targetPosition = targetElement.offsetTop - navHeight;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ===== Scroll Reveal Animation =====
+        var revealElements = document.querySelectorAll('.reveal');
+
+        function checkReveal() {
+            var windowHeight = window.innerHeight;
+            var revealPoint = 120;
+
+            revealElements.forEach(function(el) {
+                var elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - revealPoint) {
+                    el.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkReveal);
+        window.addEventListener('load', checkReveal);
+        checkReveal();
+
+        // ===== Counter Animation =====
+        var counters = document.querySelectorAll('.counter-value');
+        var countersAnimated = false;
+
+        function animateCounters() {
+            if (countersAnimated) return;
+
+            var firstCounter = counters[0];
+            if (!firstCounter) return;
+
+            var rect = firstCounter.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                countersAnimated = true;
+
+                counters.forEach(function(counter) {
+                    var target = parseInt(counter.getAttribute('data-target'));
+                    var duration = 2000;
+                    var start = 0;
+                    var startTime = null;
+
+                    function updateCounter(currentTime) {
+                        if (!startTime) startTime = currentTime;
+                        var progress = Math.min((currentTime - startTime) / duration, 1);
+                        var eased = 1 - Math.pow(1 - progress, 3);
+                        var currentValue = Math.floor(eased * target);
+
+                        if (target >= 1000) {
+                            counter.textContent = currentValue.toLocaleString('ar-SA');
+                        } else {
+                            counter.textContent = currentValue;
+                        }
+
+                        if (progress < 1) {
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            if (target >= 1000) {
+                                counter.textContent = target.toLocaleString('ar-SA') + '+';
+                            } else {
+                                counter.textContent = target + '+';
+                            }
+                        }
+                    }
+
+                    requestAnimationFrame(updateCounter);
+                });
+            }
+        }
+
+        window.addEventListener('scroll', animateCounters);
+        animateCounters();
+
+        // ===== Testimonial Slider =====
+        var testimonialTrack = document.getElementById('testimonialTrack');
+        var prevBtn = document.getElementById('prevTestimonial');
+        var nextBtn = document.getElementById('nextTestimonial');
+        var dotsContainer = document.getElementById('testimonialDots');
+        var currentSlide = 0;
+        var totalSlides = document.querySelectorAll('#testimonialTrack > div').length;
+        var autoSlideInterval;
+
+        function updateSlider() {
+            var slideWidth = testimonialTrack.querySelector('div').offsetWidth;
+            testimonialTrack.style.transform = 'translateX(' + (currentSlide * slideWidth) + 'px)';
+
+            // Update dots
+            var dots = dotsContainer.querySelectorAll('button');
+            dots.forEach(function(dot, index) {
+                if (index === currentSlide) {
+                    dot.classList.remove('bg-gray-300');
+                    dot.classList.add('bg-accent');
+                    dot.style.width = '24px';
+                } else {
+                    dot.classList.add('bg-gray-300');
+                    dot.classList.remove('bg-accent');
+                    dot.style.width = '12px';
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        }
+
+        nextBtn.addEventListener('click', function() {
+            nextSlide();
+            resetAutoSlide();
+        });
+
+        prevBtn.addEventListener('click', function() {
+            prevSlide();
+            resetAutoSlide();
+        });
+
+        // Dot navigation
+        dotsContainer.querySelectorAll('button').forEach(function(dot, index) {
+            dot.addEventListener('click', function() {
+                currentSlide = index;
+                updateSlider();
+                resetAutoSlide();
+            });
+        });
+
+        // Auto slide
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(nextSlide, 5000);
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+
+        startAutoSlide();
+
+        // Handle resize
+        window.addEventListener('resize', function() {
+            updateSlider();
+        });
+
+        // ===== Booking Form =====
+        var bookingForm = document.getElementById('bookingForm');
+        var bookingSuccess = document.getElementById('bookingSuccess');
+
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            bookingForm.classList.add('hidden');
+            bookingSuccess.classList.remove('hidden');
+            bookingSuccess.classList.add('animate-scale-in');
+
+            // Reset after 5 seconds
+            setTimeout(function() {
+                bookingForm.classList.remove('hidden');
+                bookingSuccess.classList.add('hidden');
+                bookingForm.reset();
+            }, 5000);
+        });
+
+        // ===== Contact Form =====
+        var contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var btn = this.querySelector('button[type="submit"]');
+            var originalText = btn.textContent;
+            btn.textContent = 'جاري الإرسال...';
+            btn.disabled = true;
+
+            setTimeout(function() {
+                btn.textContent = 'تم الإرسال بنجاح ✓';
+                btn.style.backgroundColor = '#10B981';
+                btn.style.color = '#fff';
+
+                setTimeout(function() {
+                    btn.textContent = originalText;
+                    btn.style.backgroundColor = '';
+                    btn.style.color = '';
+                    btn.disabled = false;
+                    contactForm.reset();
+                }, 3000);
+            }, 1500);
+        });
+
+        // ===== Newsletter Form =====
+        var newsletterForm = document.getElementById('newsletterForm');
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var btn = this.querySelector('button');
+            var originalText = btn.textContent;
+            btn.textContent = 'تم الاشتراك ✓';
+            btn.style.backgroundColor = '#10B981';
+
+            setTimeout(function() {
+                btn.textContent = originalText;
+                btn.style.backgroundColor = '';
+                newsletterForm.reset();
+            }, 3000);
+        });
+
+        // ===== Back to Top Button =====
+        var backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 500) {
+                backToTop.style.opacity = '1';
+                backToTop.style.visibility = 'visible';
+            } else {
+                backToTop.style.opacity = '0';
+                backToTop.style.visibility = 'hidden';
+            }
+        });
+
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ===== Active Navigation Highlight =====
+        var sections = document.querySelectorAll('section[id]');
+
+        function highlightNav() {
+            var scrollY = window.pageYOffset;
+
+            sections.forEach(function(section) {
+                var sectionHeight = section.offsetHeight;
+                var sectionTop = section.offsetTop - 200;
+                var sectionId = section.getAttribute('id');
+
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(function(link) {
+                        link.classList.remove('text-gold', 'bg-white/10');
+                        if (link.getAttribute('href') === '#' + sectionId) {
+                            link.classList.add('text-gold', 'bg-white/10');
+                        }
+                    });
+                }
+            });
+        }
+
+        window.addEventListener('scroll', highlightNav);
+
+        // ===== Set minimum dates for booking =====
+        var today = new Date().toISOString().split('T')[0];
+        var checkinInput = document.getElementById('bookCheckin');
+        var checkoutInput = document.getElementById('bookCheckout');
+
+        if (checkinInput) checkinInput.setAttribute('min', today);
+        if (checkoutInput) checkoutInput.setAttribute('min', today);
+
+        checkinInput.addEventListener('change', function() {
+            var checkinDate = this.value;
+            if (checkoutInput) {
+                checkoutInput.setAttribute('min', checkinDate);
+                if (checkoutInput.value && checkoutInput.value < checkinDate) {
+                    checkoutInput.value = checkinDate;
+                }
+            }
+        });
+
+        // ==================== LANGUAGE TRANSLATION SYSTEM ====================
+        var translations = {
+            ar: {
+                // Navigation
+                nav_home: "الرئيسية",
+                nav_about: "عن الفندق",
+                nav_rooms: "الغرف",
+                nav_services: "الخدمات",
+                nav_testimonials: "آراء النزلاء",
+                nav_contact: "تواصل معنا",
+                book_now: "احجز إقامتك",
+                book_now_mobile: "احجز إقامتك الآن",
+
+                // Hotel
+                hotel_name: "فندق وردة الأصيل",
+                hotel_name_short: "وردة الأصيل",
+                hotel_name_highlight: "وردة الأصيل",
+
+                // Hero
+                hero_badge: "⭐ فندق اقتصادي نجمة واحدة في قلب مكة المكرمة",
+                hero_welcome: "مرحبًا بك في فندق",
+                hero_subtitle_1: "إقامتك الفاخرة على بُعد 13 دقيقة بالسيارة من بيت الله الحرام",
+                hero_subtitle_2: "استمتع بالراحة والهدوء في أقدس بقاع الأرض",
+                hero_cta_book: "احجز الآن",
+                hero_cta_rooms: "استكشف الغرف",
+                stat_minutes: "دقيقة من الحرم",
+                stat_rooms: "غرفة وجناح",
+                stat_guests: "نزيل سعيد",
+
+                // About
+                about_title: "عن الفندق",
+                about_headline_1: "حيث تلتقي",
+                about_headline_2: "الراحة بالروحانية",
+                about_desc_1: "يقع فندق وردة الأصيل في موقع استراتيجي مميز في مكة المكرمة، على بُعد دقائق من الحرم المكي الشريف. صُمّم الفندق ليوفر لضيوفه الكرام من المعتمرين والزوار والحجاج إقامة فاخرة تجمع بين الأصالة العربية والراحة العصرية.",
+                about_desc_2: "نقدم خدمات متكاملة تشمل غرفاً مجهزة بأحدث وسائل الراحة، مطاعم تقدم أشهى المأكولات، وفريق عمل محترف يضمن لكم إقامة لا تُنسى في أجواء من الهدوء والسكينة.",
+                feature_1: "موقع قريب من الحرم",
+                feature_2: "إطلالة على مكة",
+                feature_3: "فريق خدمة متميز",
+                feature_4: "نظافة وتعقيم مستمر",
+                about_rooms_link: "تعرّف على غرفنا",
+
+                // Rooms
+                rooms_section_title: "الغرف والأجنحة",
+                rooms_title: "اختر الإقامة التي تناسبك",
+                rooms_subtitle: "غرف مصممة بعناية فائقة لتوفير أقصى درجات الراحة والخصوصية",
+                room_badge_popular: "الأكثر طلباً",
+                room_badge_recommended: "⭐ موصى بها",
+                room_badge_family: "عائلي",
+                room_quad: "غرفة رباعية",
+                room_triple: "غرفة ثلاثية",
+                room_quad_desc: "غرفة مريحة ومجهزة بكافة الاحتياجات الأساسية لإقامة هادئة ومريحة.",
+                room_quad_deluxe_desc: "غرفة فاخرة مع إطلالة مميزة وتصميم عصري أنيق لتجربة إقامة استثنائية.",
+                room_triple_desc: "جناح واسع مثالي للعائلات مع غرف منفصلة ومساحة معيشة مريحة.",
+                amenity_wifi: "واي فاي",
+                amenity_ac: "تكييف",
+                amenity_tv: "تلفاز",
+                amenity_view: "إطلالة مميزة",
+                amenity_minibar: "ميني بار",
+                amenity_room_service: "خدمة غرف",
+                book_now_btn: "احجز الآن",
+                view_all_rooms: "عرض جميع الغرف",
+
+                // Services
+                services_section_title: "خدماتنا",
+                services_title: "خدمات متكاملة لراحتكم",
+                services_subtitle: "نقدم مجموعة شاملة من الخدمات لضمان إقامة مريحة لا مثيل لها",
+                service_wifi: "Wi-Fi مجاني",
+                service_wifi_desc: "إنترنت عالي السرعة في جميع أنحاء الفندق",
+                service_reception: "استقبال 24 ساعة",
+                service_reception_desc: "فريق استقبال متاح على مدار الساعة",
+                service_restaurant: "مطعم وكافيتيريا",
+                service_restaurant_desc: "مأكولات متنوعة وشهية طوال اليوم",
+                service_room: "خدمة الغرف",
+                service_room_desc: "وجبات ومشروبات تصل إلى غرفتك",
+                service_parking: "مواقف سيارات",
+                service_parking_desc: "مواقف آمنة ومجانية للنزلاء",
+                service_transport: "نقل من/إلى الحرم",
+                service_transport_desc: "خدمة نقل مريحة إلى المسجد الحرام",
+
+                // Testimonials
+                testimonials_section_title: "آراء النزلاء",
+                testimonials_title: "ماذا يقول ضيوفنا",
+                testimonials_subtitle: "نفخر بثقة آلاف النزلاء الذين اختاروا فندق وردة الأصيل لإقامتهم",
+
+                // Booking Form
+                booking_section_title: "احجز الآن",
+                booking_title: "احجز إقامتك الآن",
+                booking_subtitle: "احجز غرفتك واستمتع بإقامة مميزة في قلب مكة المكرمة",
+                form_fullname: "الاسم الكامل",
+                form_fullname_placeholder: "أدخل اسمك الكامل",
+                form_phone: "رقم الهاتف",
+                form_checkin: "تاريخ الوصول",
+                form_checkout: "تاريخ المغادرة",
+                form_room_type: "نوع الغرفة",
+                form_select_room: "اختر نوع الغرفة",
+                room_option_standard: "الغرفة القياسية المزدوجة - 350 ر.س",
+                room_option_deluxe: "غرفة الديلوكس - 550 ر.س",
+                room_option_suite: "الجناح العائلي - 800 ر.س",
+                form_guests: "عدد النزلاء",
+                form_select_guests: "اختر",
+                guest_1: "1 شخص",
+                guest_2: "2 شخص",
+                guest_3: "3 أشخاص",
+                guest_4: "4 أشخاص",
+                guest_5: "5 أشخاص أو أكثر",
+                form_notes: "ملاحظات إضافية",
+                form_notes_placeholder: "أي طلبات خاصة أو ملاحظات...",
+                form_submit: "تأكيد الحجز",
+                form_success_title: "تم استلام طلبك بنجاح!",
+                form_success_desc: "سيتواصل معك فريقنا قريباً لتأكيد الحجز. شكراً لاختياركم فندق وردة الأصيل.",
+
+                // Contact
+                contact_section_title: "تواصل معنا",
+                contact_title: "نسعد بتواصلكم",
+                contact_subtitle: "لا تتردد في التواصل معنا لأي استفسار أو حجز",
+                contact_form_title: "أرسل لنا رسالة",
+                form_name: "الاسم",
+                form_name_placeholder: "اسمك الكامل",
+                form_email: "البريد الإلكتروني",
+                form_email_placeholder: "example@email.com",
+                form_message: "الرسالة",
+                form_message_placeholder: "اكتب رسالتك هنا...",
+                form_send: "إرسال الرسالة",
+                contact_address: "العنوان",
+                contact_phone: "الهاتف",
+                contact_email: "البريد الإلكتروني",
+                contact_hours: "ساعات العمل",
+                contact_hours_desc: "الاستقبال متاح 24 ساعة / 7 أيام"
+            },
+            en: {
+                // Navigation
+                nav_home: "Home",
+                nav_about: "About",
+                nav_rooms: "Rooms",
+                nav_services: "Services",
+                nav_testimonials: "Reviews",
+                nav_contact: "Contact",
+                book_now: "Book Now",
+                book_now_mobile: "Book Your Stay",
+
+                // Hotel
+                hotel_name: "Wardah Al Asyl Hotel",
+                hotel_name_short: "Wardah Al Asyl",
+                hotel_name_highlight: "Wardah Al Asyl",
+
+                // Hero
+                hero_badge: "⭐ 1-Star Economy Hotel in the Heart of Makkah",
+                hero_welcome: "Welcome to",
+                hero_subtitle_1: "Your luxury stay just 13 minutes by car from the Grand Mosque",
+                hero_subtitle_2: "Enjoy comfort and tranquility in the holiest place on Earth",
+                hero_cta_book: "Book Now",
+                hero_cta_rooms: "Explore Rooms",
+                stat_minutes: "Minutes to Haram",
+                stat_rooms: "Rooms & Suites",
+                stat_guests: "Happy Guests",
+
+                // About
+                about_title: "About Hotel",
+                about_headline_1: "Where Comfort",
+                about_headline_2: "Meets Spirituality",
+                about_desc_1: "Wardah Al Asyl Hotel is located in a strategic location in Makkah, just minutes from the Grand Mosque. The hotel is designed to provide guests, pilgrims, and visitors with a luxurious stay combining Arabian authenticity and modern comfort.",
+                about_desc_2: "We offer comprehensive services including rooms equipped with the latest amenities, restaurants serving delicious cuisine, and a professional team ensuring you an unforgettable stay in a serene atmosphere.",
+                feature_1: "Close to Haram",
+                feature_2: "Makkah View",
+                feature_3: "Premium Service Team",
+                feature_4: "Continuous Sanitization",
+                about_rooms_link: "Explore Our Rooms",
+
+                // Rooms
+                rooms_section_title: "Rooms & Suites",
+                rooms_title: "Choose Your Perfect Stay",
+                rooms_subtitle: "Carefully designed rooms to provide maximum comfort and privacy",
+                room_badge_popular: "Most Popular",
+                room_badge_recommended: "⭐ Recommended",
+                room_badge_family: "Family",
+                room_quad: "Quad Room",
+                room_triple: "Triple Room",
+                room_quad_desc: "A comfortable room equipped with all essential needs for a peaceful and comfortable stay.",
+                room_quad_deluxe_desc: "A luxurious room with a distinctive view and elegant modern design for an exceptional stay experience.",
+                room_triple_desc: "A spacious suite ideal for families with separate rooms and comfortable living space.",
+                amenity_wifi: "Wi-Fi",
+                amenity_ac: "A/C",
+                amenity_tv: "TV",
+                amenity_view: "Great View",
+                amenity_minibar: "Minibar",
+                amenity_room_service: "Room Service",
+                book_now_btn: "Book Now",
+                view_all_rooms: "View All Rooms",
+
+                // Services
+                services_section_title: "Our Services",
+                services_title: "Complete Services for Your Comfort",
+                services_subtitle: "We offer a comprehensive range of services to ensure an unmatched comfortable stay",
+                service_wifi: "Free Wi-Fi",
+                service_wifi_desc: "High-speed internet throughout the hotel",
+                service_reception: "24h Reception",
+                service_reception_desc: "Reception team available around the clock",
+                service_restaurant: "Restaurant & Cafe",
+                service_restaurant_desc: "Delicious and varied meals all day long",
+                service_room: "Room Service",
+                service_room_desc: "Meals and beverages delivered to your room",
+                service_parking: "Parking",
+                service_parking_desc: "Safe and free parking for guests",
+                service_transport: "Haram Transfer",
+                service_transport_desc: "Comfortable transport to the Grand Mosque",
+
+                // Testimonials
+                testimonials_section_title: "Guest Reviews",
+                testimonials_title: "What Our Guests Say",
+                testimonials_subtitle: "We are proud of the trust of thousands of guests who chose Wardah Al Asyl Hotel",
+
+                // Booking Form
+                booking_section_title: "Book Now",
+                booking_title: "Book Your Stay Now",
+                booking_subtitle: "Book your room and enjoy a memorable stay in the heart of Makkah",
+                form_fullname: "Full Name",
+                form_fullname_placeholder: "Enter your full name",
+                form_phone: "Phone Number",
+                form_checkin: "Check-in Date",
+                form_checkout: "Check-out Date",
+                form_room_type: "Room Type",
+                form_select_room: "Select room type",
+                room_option_standard: "Standard Double Room - SAR 350",
+                room_option_deluxe: "Deluxe Room - SAR 550",
+                room_option_suite: "Family Suite - SAR 800",
+                form_guests: "Number of Guests",
+                form_select_guests: "Select",
+                guest_1: "1 Person",
+                guest_2: "2 People",
+                guest_3: "3 People",
+                guest_4: "4 People",
+                guest_5: "5+ People",
+                form_notes: "Additional Notes",
+                form_notes_placeholder: "Any special requests or notes...",
+                form_submit: "Confirm Booking",
+                form_success_title: "Request Received Successfully!",
+                form_success_desc: "Our team will contact you shortly to confirm your booking. Thank you for choosing Wardah Al Asyl Hotel.",
+
+                // Contact
+                contact_section_title: "Contact Us",
+                contact_title: "We'd Love to Hear From You",
+                contact_subtitle: "Don't hesitate to reach out for any inquiries or bookings",
+                contact_form_title: "Send Us a Message",
+                form_name: "Name",
+                form_name_placeholder: "Your full name",
+                form_email: "Email",
+                form_email_placeholder: "example@email.com",
+                form_message: "Message",
+                form_message_placeholder: "Write your message here...",
+                form_send: "Send Message",
+                contact_address: "Address",
+                contact_phone: "Phone",
+                contact_email: "Email",
+                contact_hours: "Working Hours",
+                contact_hours_desc: "24/7 Reception Available"
+            },
+            ur: {
+                // Navigation
+                nav_home: "صفحہ اول",
+                nav_about: "ہوٹل کے بارے میں",
+                nav_rooms: "کمرے",
+                nav_services: "خدمات",
+                nav_testimonials: "تاثرات",
+                nav_contact: "رابطہ کریں",
+                book_now: "ابھی بک کریں",
+                book_now_mobile: "اپنے قیام کی بکنگ کریں",
+
+                // Hotel
+                hotel_name: "ورده الاصیل ہوٹل",
+                hotel_name_short: "ورده الاصیل",
+                hotel_name_highlight: "ورده الاصیل",
+
+                // Hero
+                hero_badge: "⭐ مکہ کے دل میں ایک ستارہ معیشتی ہوٹل",
+                hero_welcome: "خوش آمدید",
+                hero_subtitle_1: "بیت اللہ سے صرف 13 منٹ کی دوری پر آپ کا عالی شان قیام",
+                hero_subtitle_2: "دنیا کے مقدس ترین مقام پر سکون اور آرام سے لطف اندوز ہوں",
+                hero_cta_book: "ابھی بک کریں",
+                hero_cta_rooms: "کمرے دیکھیں",
+                stat_minutes: "حرم سے منٹ",
+                stat_rooms: "کمرے اور سوئٹ",
+                stat_guests: "مہمانان مہمان",
+
+                // About
+                about_title: "ہوٹل کے بارے میں",
+                about_headline_1: "جہاں آرام",
+                about_headline_2: "روحانیت سے ملتا ہے",
+                about_desc_1: "ورده الاصیل ہوٹل مکہ میں ایک strategic مقام پر واقع ہے، حرم مکی سے صرف چند منٹ کی دوری پر۔ یہ ہوٹل مہمانوں، زائرین اور حجاج کرام کے لیے عربی اصالت اور جدید آرام کا امتزاج پیش کرتا ہے۔",
+                about_desc_2: "ہم جدید سہولیات سے آراستہ کمرے، لذیذ کھانا پیش کرنے والے ریستورانٹ، اور ایک پیشہ ور ٹیم فراہم کرتے ہیں جو آپ کو ایک پرسکون ماحول میں ایک یادگار قیام یقینی بناتے ہیں۔",
+                feature_1: "حرم کے قریب",
+                feature_2: "مکہ کا منظر",
+                feature_3: "اعلی خدماتی ٹیم",
+                feature_4: "مسلмал صفائی",
+                about_rooms_link: "ہمارے کمرے دیکھیں",
+
+                // Rooms
+                rooms_section_title: "کمرے اور سوئٹ",
+                rooms_title: "اپنے مطابق قیام منتخب کریں",
+                rooms_subtitle: "زیادہ سے زیادہ آرام اور پرائیوسی کے لیے احتیاط سے ڈیزائن کردہ کمرے",
+                room_badge_popular: "سب سے زیادہ مقبول",
+                room_badge_recommended: "⭐ تجویز کردہ",
+                room_badge_family: "خاندانی",
+                room_quad: "چار بستروں والا کمرہ",
+                room_triple: "تین بستروں والا کمرہ",
+                room_quad_desc: "ایک آرام دہ کمرہ جو پرسکون اور آرام دہ قیام کے لیے تمام ضروریات سے آراستہ ہے۔",
+                room_quad_deluxe_desc: "ایک عالی شان کمرہ جس میں منفرد منظر اور شاندار جدید ڈیزائن ہے۔",
+                room_triple_desc: "خاندانوں کے لیے ایک وسیع سوئٹ جس میں الگ کمرے اور آرام دہ رہائشی جگہ ہے۔",
+                amenity_wifi: "وائی فائی",
+                amenity_ac: "ایئر کنڈیشن",
+                amenity_tv: "ٹی وی",
+                amenity_view: "خوبصورت منظر",
+                amenity_minibar: "منی بار",
+                amenity_room_service: "روم سروس",
+                book_now_btn: "ابھی بک کریں",
+                view_all_rooms: "تمام کمرے دیکھیں",
+
+                // Services
+                services_section_title: "ہماری خدمات",
+                services_title: "آپ کی آرام کے لیے مکمل خدمات",
+                services_subtitle: "ہم ایک بے مثل آرام دہ قیام کو یقینی بنانے کے لیے وسیع خدمات پیش کرتے ہیں",
+                service_wifi: "مفت وائی فائی",
+                service_wifi_desc: "پورے ہوٹل میں تیز رفتار انٹرنیٹ",
+                service_reception: "24 گھنٹے استقبال",
+                service_reception_desc: "24 گھنٹے دستیاب استقبالی ٹیم",
+                service_restaurant: "ریستورانٹ اور کیفے",
+                service_restaurant_desc: "دن بھر لذیذ اور متنوع کھانا",
+                service_room: "روم سروس",
+                service_room_desc: "آپ کے کمرے تک کھانا اور مشروبات",
+                service_parking: "پارکنگ",
+                service_parking_desc: "مہمانوں کے لیے محفوظ اور مفت پارکنگ",
+                service_transport: "حرم کی نقل و حمل",
+                service_transport_desc: "حرم مکی کے لیے آرام دہ نقل و حمل",
+
+                // Testimonials
+                testimonials_section_title: "مہمانوں کے تاثرات",
+                testimonials_title: "ہمارے مہمان کیا کہتے ہیں",
+                testimonials_subtitle: "ہم ان ہزاروں مہمانوں کے اعتماد پر فخر کرتے ہیں جنہوں نے ورده الاصیل ہوٹل کا انتخاب کیا",
+
+                // Booking Form
+                booking_section_title: "ابھی بک کریں",
+                booking_title: "ابھی اپنا قیام بک کریں",
+                booking_subtitle: "اپنا کمرہ بک کریں اور مکہ کے دل میں ایک یادگار قیام سے لطف اندوز ہوں",
+                form_fullname: "پورا نام",
+                form_fullname_placeholder: "اپنا پورا نام درج کریں",
+                form_phone: "فون نمبر",
+                form_checkin: "آنے کی تاریخ",
+                form_checkout: "جانے کی تاریخ",
+                form_room_type: "کمرے کی قسم",
+                form_select_room: "کمرے کی قسم منتخب کریں",
+                room_option_standard: "معیاری ڈبل کمرہ - 350 ریال",
+                room_option_deluxe: "ڈیلکس کمرہ - 550 ریال",
+                room_option_suite: "خاندانی سوئٹ - 800 ریال",
+                form_guests: "مہمانوں کی تعداد",
+                form_select_guests: "منتخب کریں",
+                guest_1: "1 شخص",
+                guest_2: "2 افراد",
+                guest_3: "3 افراد",
+                guest_4: "4 افراد",
+                guest_5: "5+ افراد",
+                form_notes: "اضافی نوٹس",
+                form_notes_placeholder: "کوئی خصوصی درخواست یا نوٹس...",
+                form_submit: "بکنگ تصدیق کریں",
+                form_success_title: "درخواست کامیابی سے موصول ہوئی!",
+                form_success_desc: "ہماری ٹیم جلد ہی آپ سے رابطہ کرے گی۔ ورده الاصیل ہوٹل کا انتخاب کرنے کا شکریہ۔",
+
+                // Contact
+                contact_section_title: "رابطہ کریں",
+                contact_title: "آپ سے سننا پسند کریں گے",
+                contact_subtitle: "کسی بھی استفسار یا بکنگ کے لیے رابطہ کرنے میں ہچکچاہٹ نہ کریں",
+                contact_form_title: "ہمیں پیغام بھیجیں",
+                form_name: "نام",
+                form_name_placeholder: "آپ کا پورا نام",
+                form_email: "ای میل",
+                form_email_placeholder: "example@email.com",
+                form_message: "پیغام",
+                form_message_placeholder: "اپنا پیغام یہاں لکھیں...",
+                form_send: "پیغام بھیجیں",
+                contact_address: "پتہ",
+                contact_phone: "فون",
+                contact_email: "ای میل",
+                contact_hours: "کام کرنے کے اوقات",
+                contact_hours_desc: "24/7 استقبال دستیاب"
+            }
+        };
+
+        // Current language
+        var currentLanguage = localStorage.getItem('language') || 'ar';
+
+        // Language switcher elements
+        var langToggle = document.getElementById('langToggle');
+        var langDropdown = document.getElementById('langDropdown');
+        var currentLangFlag = document.getElementById('currentLangFlag');
+        var currentLangCode = document.getElementById('currentLangCode');
+
+        // Toggle dropdown
+        langToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            langDropdown.classList.toggle('active');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function() {
+            langDropdown.classList.remove('active');
+        });
+
+        // Language change function
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            localStorage.setItem('language', lang);
+
+            // Update HTML attributes
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'en' ? 'ltr' : 'rtl';
+
+            // Update flag and code
+            var flags = { ar: '🇸🇦', en: '🇬🇧', ur: '🇵🇰' };
+            var codes = { ar: 'AR', en: 'EN', ur: 'UR' };
+            currentLangFlag.textContent = flags[lang];
+            currentLangCode.textContent = codes[lang];
+
+            // Update active state in dropdown
+            document.querySelectorAll('.lang-option').forEach(function(option) {
+                option.classList.remove('active');
+                if (option.dataset.lang === lang) {
+                    option.classList.add('active');
+                }
+            });
+
+            // Update mobile language buttons
+            document.querySelectorAll('.mobile-lang-btn').forEach(function(btn) {
+                btn.classList.remove('active');
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Update all translations
+            updateTranslations();
+
+            // Update arrow directions based on language direction
+            updateArrowDirections(lang);
+        }
+
+        // Update arrow directions
+        function updateArrowDirections(lang) {
+            var isRTL = lang !== 'en';
+
+            // Hero arrows
+            var heroArrow1 = document.querySelector('.hero-arrow-icon');
+            var heroArrow2 = document.querySelector('.hero-arrow-icon-2');
+            if (heroArrow1) {
+                heroArrow1.style.transform = isRTL ? 'rotate(180deg)' : 'rotate(0deg)';
+            }
+            if (heroArrow2) {
+                heroArrow2.style.transform = isRTL ? 'rotate(180deg)' : 'rotate(90deg)';
+            }
+
+            // About arrow
+            var aboutArrow = document.querySelector('.about-arrow-icon');
+            if (aboutArrow) {
+                aboutArrow.style.transform = isRTL ? 'rotate(180deg)' : 'rotate(0deg)';
+            }
+
+            // Rooms arrow
+            var roomsArrow = document.querySelector('.rooms-arrow-icon');
+            if (roomsArrow) {
+                roomsArrow.style.transform = isRTL ? 'rotate(180deg)' : 'rotate(0deg)';
+            }
+        }
+
+        // Update all translated elements
+        function updateTranslations() {
+            var texts = translations[currentLanguage];
+            if (!texts) return;
+
+            // Update elements with data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(function(element) {
+                var key = element.getAttribute('data-i18n');
+                if (texts[key]) {
+                    element.textContent = texts[key];
+                }
+            });
+
+            // Update placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(function(element) {
+                var key = element.getAttribute('data-i18n-placeholder');
+                if (texts[key]) {
+                    element.placeholder = texts[key];
+                }
+            });
+        }
+
+        // Language option click handlers
+        document.querySelectorAll('.lang-option').forEach(function(option) {
+            option.addEventListener('click', function(e) {
+                e.stopPropagation();
+                var lang = this.dataset.lang;
+                changeLanguage(lang);
+                langDropdown.classList.remove('active');
+            });
+        });
+
+        // Initialize language on page load
+        changeLanguage(currentLanguage);
+    </script>
+</body>
+</html>
+
