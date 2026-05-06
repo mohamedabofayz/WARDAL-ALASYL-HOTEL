@@ -1663,11 +1663,20 @@
             })
             .catch(function(error) {
                 console.error('Error:', error);
-                alert('حدث خطأ أثناء إرسال البيانات. يرجى المحاولة مرة أخرى.');
+                // عرض رسالة الخطأ داخل الصفحة
                 if (bookingSubmitBtn) {
-                    bookingSubmitBtn.disabled = false;
-                    bookingSubmitBtn.textContent = bookingOriginalText;
+                    bookingSubmitBtn.textContent = 'خطأ! حاول مرة أخرى';
+                    bookingSubmitBtn.style.backgroundColor = '#EF4444';
+                    bookingSubmitBtn.style.color = '#fff';
                 }
+                setTimeout(function() {
+                    if (bookingSubmitBtn) {
+                        bookingSubmitBtn.textContent = bookingOriginalText;
+                        bookingSubmitBtn.style.backgroundColor = '';
+                        bookingSubmitBtn.style.color = '';
+                        bookingSubmitBtn.disabled = false;
+                    }
+                }, 3000);
             });
         });
 
@@ -1726,11 +1735,20 @@
             })
             .catch(function(error) {
                 console.error('Error:', error);
-                alert('حدث خطأ أثناء إرسال البيانات. يرجى المحاولة مرة أخرى.');
+                // عرض رسالة الخطأ داخل الصفحة
                 if (contactSubmitBtn) {
-                    contactSubmitBtn.textContent = contactOriginalText;
-                    contactSubmitBtn.disabled = false;
+                    contactSubmitBtn.textContent = 'خطأ! حاول مرة أخرى';
+                    contactSubmitBtn.style.backgroundColor = '#EF4444';
+                    contactSubmitBtn.style.color = '#fff';
                 }
+                setTimeout(function() {
+                    if (contactSubmitBtn) {
+                        contactSubmitBtn.textContent = contactOriginalText;
+                        contactSubmitBtn.style.backgroundColor = contactOriginalBg;
+                        contactSubmitBtn.style.color = '';
+                        contactSubmitBtn.disabled = false;
+                    }
+                }, 3000);
             });
         });
 
@@ -1786,11 +1804,20 @@
             })
             .catch(function(error) {
                 console.error('Error:', error);
-                alert('حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.');
+                // عرض رسالة الخطأ داخل الصفحة
                 if (newsletterSubmitBtn) {
-                    newsletterSubmitBtn.textContent = newsletterOriginalText;
-                    newsletterSubmitBtn.disabled = false;
+                    newsletterSubmitBtn.textContent = 'خطأ! حاول مرة أخرى';
+                    newsletterSubmitBtn.style.backgroundColor = '#EF4444';
+                    newsletterSubmitBtn.style.color = '#fff';
                 }
+                setTimeout(function() {
+                    if (newsletterSubmitBtn) {
+                        newsletterSubmitBtn.textContent = newsletterOriginalText;
+                        newsletterSubmitBtn.style.backgroundColor = newsletterOriginalBg;
+                        newsletterSubmitBtn.style.color = '';
+                        newsletterSubmitBtn.disabled = false;
+                    }
+                }, 3000);
             });
         });
 
