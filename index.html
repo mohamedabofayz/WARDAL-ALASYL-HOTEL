@@ -683,14 +683,68 @@
             text-align: left !important;
         }
 
-        /* إصلاح خاص لحقول التاريخ التي تحتوي على lang="en" */
-        input[type="date"][lang="en"] {
+        /* إصلاح خاص لحقول التاريخ التي تحتوي على lang="en" و dir="ltr" */
+        input[type="date"][lang="en"][dir="ltr"] {
             direction: ltr !important;
             text-align: right !important;
+            unicode-bidi: isolate !important;
         }
 
         html[dir="ltr"] input[type="date"][lang="en"] {
             text-align: left !important;
+        }
+
+        /* إخفاء النص الافتراضي المعكوس وإظهار تاريخ فارغ */
+        input[type="date"]:required:invalid::-webkit-datetime-edit {
+            color: transparent !important;
+        }
+
+        input[type="date"]:focus::-webkit-datetime-edit {
+            color: white !important;
+        }
+
+        /* إخفاء الـ placeholder الافتراضي في Chrome */
+        input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+            background-color: transparent;
+        }
+
+        input[type="date"]:not(:focus):not(:valid)::-webkit-datetime-edit {
+            color: transparent !important;
+            background: transparent;
+        }
+
+        /* إصلاح قوي لمنع عكس النص - إخفاء النص المعكوس بالكامل */
+        input[type="date"]:invalid::-webkit-datetime-edit-text {
+            color: transparent !important;
+        }
+
+        /* حل بديل: تصغير حجم النص ليكون غير مرئي */
+        input[type="date"]:not(:focus):invalid {
+            font-size: 0 !important;
+        }
+
+        input[type="date"]:focus,
+        input[type="date"]:valid {
+            font-size: inherit !important;
+        }
+
+        /* حاوية LTR لحقول التاريخ */
+        .date-input-wrapper {
+            direction: ltr !important;
+            text-align: right;
+        }
+
+        .date-input-wrapper input[type="date"] {
+            direction: ltr !important;
+            text-align: right !important;
+        }
+
+        /* إجبار المتصفح على عدم عكس النص */
+        input[type="date"]::-webkit-datetime-edit-day-field,
+        input[type="date"]::-webkit-datetime-edit-month-field,
+        input[type="date"]::-webkit-datetime-edit-year-field {
+            direction: ltr !important;
+            unicode-bidi: plaintext !important;
         }
 
         /* إصلاح placeholder التاريخ في RTL - يمنع عكس النص */
@@ -1364,11 +1418,15 @@
                     <div class="grid sm:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-white/80 text-sm font-medium mb-2" for="bookCheckin" data-i18n="form_checkin">تاريخ الوصول</label>
-                            <input type="date" id="bookCheckin" lang="en" class="form-input w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all" required>
+                            <div class="date-input-wrapper" dir="ltr">
+                                <input type="date" id="bookCheckin" lang="en" dir="ltr" class="form-input w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all" required>
+                            </div>
                         </div>
                         <div>
                             <label class="block text-white/80 text-sm font-medium mb-2" for="bookCheckout" data-i18n="form_checkout">تاريخ المغادرة</label>
-                            <input type="date" id="bookCheckout" lang="en" class="form-input w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all" required>
+                            <div class="date-input-wrapper" dir="ltr">
+                                <input type="date" id="bookCheckout" lang="en" dir="ltr" class="form-input w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all" required>
+                            </div>
                         </div>
                     </div>
                     <div class="grid sm:grid-cols-2 gap-6">
@@ -2311,10 +2369,34 @@
             // فرض اتجاه LTR على العنصر
             input.style.direction = 'ltr';
             input.style.textAlign = 'right';
+            input.style.unicodeBidi = 'plaintext';
+            // التأكد من عدم وجود قيمة افتراضية تظهر معكوسة
+            input.setAttribute('lang', 'en');
+            input.setAttribute('dir', 'ltr');
         }
 
         fixDateInputRTL(checkinInput);
         fixDateInputRTL(checkoutInput);
+
+        // إعادة تطبيق الإصلاح بعد تحميل الصفحة بالكامل
+        window.addEventListener('load', function() {
+            fixDateInputRTL(checkinInput);
+            fixDateInputRTL(checkoutInput);
+
+            // إجبار المتصفح على إعادة رسم الحقول
+            setTimeout(function() {
+                if (checkinInput) {
+                    checkinInput.style.display = 'none';
+                    checkinInput.offsetHeight; // إجبار إعادة الرسم
+                    checkinInput.style.display = '';
+                }
+                if (checkoutInput) {
+                    checkoutInput.style.display = 'none';
+                    checkoutInput.offsetHeight; // إجبار إعادة الرسم
+                    checkoutInput.style.display = '';
+                }
+            }, 100);
+        });
 
         checkinInput.addEventListener('change', function() {
             var checkinDate = this.value;
