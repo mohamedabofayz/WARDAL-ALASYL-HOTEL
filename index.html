@@ -664,21 +664,55 @@
         /* ==================== DATE INPUT FIX FOR RTL ==================== */
         /* إصلاح عرض حقول التاريخ في الوضع RTL */
         input[type="date"] {
-            direction: ltr;
+            direction: ltr !important;
             text-align: right;
+            unicode-bidi: plaintext !important;
         }
 
-        html[lang="en"] input[type="date"] {
-            text-align: left;
+        /* إصلاح للعربية RTL */
+        html[dir="rtl"] input[type="date"],
+        [dir="rtl"] input[type="date"] {
+            direction: ltr !important;
+            text-align: right !important;
+            unicode-bidi: plaintext !important;
         }
 
-        /* تأكد من عرض التاريخ بشكل صحيح */
-        input[type="date"]::-webkit-date-and-time-value {
-            text-align: right;
+        /* إصلاح للإنجليزية LTR */
+        html[lang="en"] input[type="date"],
+        html[dir="ltr"] input[type="date"] {
+            text-align: left !important;
         }
 
-        html[lang="en"] input[type="date"]::-webkit-date-and-time-value {
-            text-align: left;
+        /* إصلاح خاص لحقول التاريخ التي تحتوي على lang="en" */
+        input[type="date"][lang="en"] {
+            direction: ltr !important;
+            text-align: right !important;
+        }
+
+        html[dir="ltr"] input[type="date"][lang="en"] {
+            text-align: left !important;
+        }
+
+        /* إصلاح placeholder التاريخ في RTL - يمنع عكس النص */
+        input[type="date"]:placeholder-shown {
+            direction: ltr !important;
+            unicode-bidi: plaintext !important;
+            text-orientation: mixed;
+        }
+
+        /* للمتصفحات التي تدعم ::placeholder */
+        input[type="date"]::placeholder {
+            direction: ltr !important;
+            unicode-bidi: plaintext !important;
+        }
+
+        /* إصلاح خاص لمتصفح Safari و Chrome */
+        input[type="date"]::-webkit-datetime-edit {
+            direction: ltr !important;
+        }
+
+        input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+            direction: ltr !important;
         }
 
         /* إخفاء أيقونة التقويم الافتراضية في بعض المتصفحات */
@@ -1330,11 +1364,11 @@
                     <div class="grid sm:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-white/80 text-sm font-medium mb-2" for="bookCheckin" data-i18n="form_checkin">تاريخ الوصول</label>
-                            <input type="date" id="bookCheckin" class="form-input w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all" required>
+                            <input type="date" id="bookCheckin" lang="en" class="form-input w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all" required>
                         </div>
                         <div>
                             <label class="block text-white/80 text-sm font-medium mb-2" for="bookCheckout" data-i18n="form_checkout">تاريخ المغادرة</label>
-                            <input type="date" id="bookCheckout" class="form-input w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all" required>
+                            <input type="date" id="bookCheckout" lang="en" class="form-input w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all" required>
                         </div>
                     </div>
                     <div class="grid sm:grid-cols-2 gap-6">
@@ -2268,6 +2302,19 @@
 
         if (checkinInput) checkinInput.setAttribute('min', today);
         if (checkoutInput) checkoutInput.setAttribute('min', today);
+
+        // إصلاح مشكلة عكس النص في حقول التاريخ في الوضع RTL
+        function fixDateInputRTL(input) {
+            if (!input) return;
+            // إضافة placeholder صريح لتجنب النص الافتراضي المعكوس
+            input.setAttribute('placeholder', 'YYYY-MM-DD');
+            // فرض اتجاه LTR على العنصر
+            input.style.direction = 'ltr';
+            input.style.textAlign = 'right';
+        }
+
+        fixDateInputRTL(checkinInput);
+        fixDateInputRTL(checkoutInput);
 
         checkinInput.addEventListener('change', function() {
             var checkinDate = this.value;
