@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Nama Al-Asriya | Business OS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="lang-switcher">
+            <button class="lang-btn active" onclick="setLanguage('ar')">العربية</button>
+            <button class="lang-btn" onclick="setLanguage('en')">English</button>
+            <button class="lang-btn" onclick="setLanguage('ur')">اردو</button>
+        </div>
+        <img src="LOGO-transparency-300x274.png" alt="Nama Logo">
+        <p id="ui-subtitle">نظام أتمتة المستندات الذكية</p>
+    </header>
+
+    <div class="tab-container">
+        <div class="tab active" onclick="switchView('create')" id="tab-new">مستند جديد</div>
+        <div class="tab" onclick="switchView('history')" id="tab-history">سجل العمليات</div>
+    </div>
+
+    <main>
+        <div id="create-view" class="view active">
+            <div class="form-card">
+                <form id="docForm">
+                    <div class="form-group">
+                        <label id="label-template">اختيار قالب المستند</label>
+                        <select id="templateSelect" required>
+                            <option value="" id="opt-loading">جاري تحميل القوالب...</option>
+                        </select>
+                    </div>
+
+                    <input type="hidden" id="templateId" name="معرف القالب">
+                    <input type="hidden" id="templateType" name="نوع القالب">
+                    <input type="hidden" id="templateLang" name="لغة القالب">
+                    <input type="hidden" id="templateCompany" name="شركة القالب">
+
+                    <div id="dynamicFields"></div>
+                </form>
+            </div>
+        </div>
+
+        <div id="history-view" class="view">
+            <div id="activityLog">
+                <p style="text-align: center; color: var(--text-low); padding: 3rem;" id="log-loading">جاري المزامنة...</p>
+            </div>
+        </div>
+    </main>
+
+    <div class="action-btn-container" id="footer-action">
+        <button type="submit" form="docForm" class="action-btn" id="btn-submit">إنشاء وحفظ المستند</button>
+    </div>
+
+    <div id="gamified-loading" class="gamified-overlay">
+        <div class="percentage" id="load-pct">0%</div>
+        <div class="progress-container">
+            <div class="progress-bar" id="load-bar"></div>
+        </div>
+        <div class="loading-text" id="load-status">بدء المعالجة...</div>
+        <div class="loading-subtext" id="load-subtext">يرجى الانتظار، نقوم بتجهيز ملفك الآن</div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
